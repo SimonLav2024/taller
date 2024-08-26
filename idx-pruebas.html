@@ -6,146 +6,44 @@
     <title>Document</title>
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra de Navegación con Desplegables</title>
-    <style>
-        /* Estilo básico para la barra de navegación */
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
+    Un taller de coches ofrece una variedad de servicios y funciones esenciales para el mantenimiento, reparación y mejora de vehículos. Aquí tienes una descripción de las principales funciones que suelen ofrecer:
 
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
+1. **Mantenimiento Preventivo**: 
+   - **Cambio de aceite y filtros**: Sustitución del aceite del motor y de los filtros (aceite, aire, combustible) para asegurar el buen funcionamiento del motor.
+   - **Revisión de fluidos**: Comprobación y reemplazo de fluidos como el refrigerante, líquido de frenos, líquido de transmisión y líquido de dirección asistida.
+   - **Revisión de neumáticos**: Inspección de la presión, alineación y desgaste de los neumáticos. También incluye la rotación y el balanceo de los neumáticos.
+   - **Inspección general**: Revisión de diversos sistemas del vehículo, como frenos, suspensión, escape, luces, y otros componentes clave para asegurar que el vehículo funcione correctamente.
 
-        .navbar a:hover {
-            background-color: #575757;
-        }
+2. **Reparación de Sistemas Mecánicos**:
+   - **Reparación de motores**: Diagnóstico y reparación de problemas en el motor, incluyendo la sustitución de piezas defectuosas, ajustes de válvulas, y trabajos más complejos como la reconstrucción del motor.
+   - **Reparación de frenos**: Sustitución de pastillas de freno, discos, tambores, y revisión del sistema de frenos en general.
+   - **Sistemas de transmisión**: Reparación y mantenimiento de cajas de cambio (manuales y automáticas), diferenciales, y otros componentes del sistema de transmisión.
+   - **Suspensión y dirección**: Reparación y sustitución de amortiguadores, muelles, brazos de suspensión, y ajustes de la alineación y geometría del vehículo.
 
-        /* Contenedor del dropdown */
-        .dropdown {
-            float: left;
-            overflow: hidden;
-        }
+3. **Diagnóstico y Reparación Eléctrica**:
+   - **Sistemas de encendido**: Revisión y reparación de problemas relacionados con el encendido del vehículo, como bujías, bobinas, y batería.
+   - **Sistemas eléctricos**: Diagnóstico y reparación de problemas en el sistema eléctrico, que pueden incluir la reparación de alternadores, motor de arranque, sistema de luces, y otros componentes electrónicos del vehículo.
+   - **Diagnóstico con escáner**: Uso de herramientas de diagnóstico para identificar problemas a través de la computadora del vehículo, como errores en el sistema de inyección, sensores, y otros componentes electrónicos.
 
-        /* Botón que abre el menú desplegable */
-        .dropdown .dropbtn {
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 20px;
-            background-color: inherit;
-            margin: 0;
-            cursor: pointer;
-        }
+4. **Reparación de Carrocería y Pintura**:
+   - **Reparación de abolladuras y golpes**: Arreglo de daños en la carrocería del vehículo, ya sea por accidentes o desgaste.
+   - **Pintura de vehículos**: Reacondicionamiento y repintado del vehículo, que puede incluir desde retoques hasta una pintura completa.
+   - **Reparación de parachoques**: Restauración o reemplazo de parachoques dañados.
+   - **Alineación de chasis**: Corrección de la estructura del chasis del vehículo si ha sufrido daños importantes.
 
-        .navbar a:hover, .dropdown:hover .dropbtn {
-            background-color: #575757;
-        }
+5. **Instalación y Reparación de Accesorios**:
+   - **Instalación de sistemas de audio y multimedia**: Montaje de radios, pantallas, sistemas de navegación, y otros dispositivos de entretenimiento o ayuda a la conducción.
+   - **Instalación de accesorios**: Montaje de accesorios como faros adicionales, defensas, spoilers, y otros elementos personalizables.
+   - **Sistemas de climatización**: Reparación e instalación de aire acondicionado y sistemas de calefacción.
 
-        /* Contenido del dropdown (oculto por defecto) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
+6. **Asesoramiento Técnico y Consultoría**:
+   - **Consultoría para modificaciones**: Asesoramiento sobre mejoras en el rendimiento del vehículo, modificaciones estéticas o funcionales, y optimización de consumos.
+   - **Presupuestos y evaluaciones**: Provisión de presupuestos para reparaciones, evaluaciones técnicas del estado del vehículo, y recomendaciones de mantenimiento.
 
-        /* Items del dropdown */
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
+7. **Servicios de Emergencia y Asistencia**:
+   - **Asistencia en carretera**: Servicios como grúas, cambio de neumáticos, arranque de batería, y otros servicios de emergencia.
+   - **Servicio rápido**: Realización de reparaciones rápidas y cambios de aceite o neumáticos sin cita previa.
 
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-
-        /* Mostrar el contenido del dropdown al hacer clic */
-        .dropdown.show .dropdown-content {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Barra de Navegación -->
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown('dropdown1')">Servicios</button>
-            <div class="dropdown-content" id="dropdown1">
-                <a href="#servicio1">Servicio 1</a>
-                <a href="#servicio2">Servicio 2</a>
-                <a href="#servicio3">Servicio 3</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown('dropdown2')">Productos</button>
-            <div class="dropdown-content" id="dropdown2">
-                <a href="#producto1">Producto 1</a>
-                <a href="#producto2">Producto 2</a>
-                <a href="#producto3">Producto 3</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown('dropdown3')">Contacto</button>
-            <div class="dropdown-content" id="dropdown3">
-                <a href="#contacto1">Contacto 1</a>
-                <a href="#contacto2">Contacto 2</a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Función para mostrar/ocultar el contenido del dropdown
-        function toggleDropdown(id) {
-            var dropdown = document.getElementById(id);
-            // Oculta cualquier dropdown que esté abierto
-            var dropdowns = document.querySelectorAll('.dropdown-content');
-            dropdowns.forEach(function(el) {
-                if (el !== dropdown) {
-                    el.style.display = 'none';
-                }
-            });
-            // Alterna la visibilidad del dropdown seleccionado
-            if (dropdown.style.display === 'block') {
-                dropdown.style.display = 'none';
-            } else {
-                dropdown.style.display = 'block';
-            }
-        }
-
-        // Cierra el dropdown si se hace clic fuera de él
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.querySelectorAll('.dropdown-content');
-                dropdowns.forEach(function(el) {
-                    el.style.display = 'none';
-                });
-            }
-        }
-    </script>
-
-</body>
-</html>
-
+Cada taller puede ofrecer un conjunto específico de estos servicios, dependiendo de su especialización, tamaño, y equipamiento disponible.
 </body>
 </html>
