@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Navegación con Desplegables</title>
+    <style>
+        /* Estilo básico para la barra de navegación */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Contenedor del dropdown */
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        /* Botón que abre el menú desplegable */
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 20px;
+            background-color: inherit;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #575757;
+        }
+
+        /* Contenido del dropdown (oculto por defecto) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Items del dropdown */
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Mostrar el contenido del dropdown al hacer clic */
+        .dropdown.show .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown('dropdown1')">Servicios</button>
+            <div class="dropdown-content" id="dropdown1">
+                <a href="#servicio1">Servicio 1</a>
+                <a href="#servicio2">Servicio 2</a>
+                <a href="#servicio3">Servicio 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown('dropdown2')">Productos</button>
+            <div class="dropdown-content" id="dropdown2">
+                <a href="#producto1">Producto 1</a>
+                <a href="#producto2">Producto 2</a>
+                <a href="#producto3">Producto 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown('dropdown3')">Contacto</button>
+            <div class="dropdown-content" id="dropdown3">
+                <a href="#contacto1">Contacto 1</a>
+                <a href="#contacto2">Contacto 2</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar/ocultar el contenido del dropdown
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            // Oculta cualquier dropdown que esté abierto
+            var dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(function(el) {
+                if (el !== dropdown) {
+                    el.style.display = 'none';
+                }
+            });
+            // Alterna la visibilidad del dropdown seleccionado
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        }
+
+        // Cierra el dropdown si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(function(el) {
+                    el.style.display = 'none';
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+</body>
+</html>
