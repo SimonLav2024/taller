@@ -19,6 +19,9 @@ document.getElementById("boton").addEventListener('click', function toggleMenu()
         myNav.className = "navbar"
     }
 });
+
+
+
 // fin
 
 
