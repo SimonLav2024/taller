@@ -1,6 +1,4 @@
 
-
-
 // Parallax
 window.addEventListener('scroll', function() {
     var parallax = document.getElementById('parallax');
@@ -24,9 +22,12 @@ document.getElementById("boton").addEventListener('click', function toggleMenu()
 
 // intersection observer
 const imagen1 = document.getElementById('img1');
-const imagen2 = document.getElementById('img2');
 const imagen3 = document.getElementById("img3");
 const imagen4 = document.getElementById("img4");
+const imagen5 = document.getElementById("img5");
+const imagen6 = document.getElementById("img6");
+const imagen7 = document.getElementById("img7");
+const imagen8 = document.getElementById("img8");
 
 function cargarImagen(entradas, observador){
     entradas.forEach(entrada => {
@@ -53,7 +54,39 @@ const observador = new IntersectionObserver(cargarImagen, {
     Agregamos los elementos a observar
 */
 observador.observe(imagen1);
-observador.observe(imagen2);
 observador.observe(imagen3);
 observador.observe(imagen4);
+observador.observe(imagen5);
+observador.observe(imagen6);
+observador.observe(imagen7);
+observador.observe(imagen8);
 // fin
+
+//ventana modal
+
+const modal = document.getElementById("imagenModal");
+const modalImg = document.querySelector(".modal-image");
+const thumbnail = document.querySelectorAll(".imagenes");
+const closeBtn = document.querySelector(".close");
+
+thumbnail.forEach(thumb => {
+    thumb.addEventListener("click", () => {
+        modal.style.display = "block";
+    });
+});
+
+// esto es para cerrar el modal
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// esto tambien sirve para para cerrar el modal
+// closeBtn.onclick = () => { modal.style.display = "none"};
+//varias formas pero mismo resultado aunk la segunda tiene menos lineas de codigo
+
+window.onclick = (event) => {
+    if(event.target.classList.contains("modal-content")){
+        modal.style.display = "none";
+    }
+}
+//fin
