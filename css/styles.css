@@ -221,16 +221,12 @@ hr {
     align-items: center;
     height: 100%;
 }
-.modal-image {
-    max-width: 90%;
-    max-height: 90%;
-}
-.lista-servicios {
-    padding: 10rem;
-    background-color: rgb(215, 215, 215);
-    border-radius: 10px;
-    border-style: ridge;
-    border-color: rgb(245, 213, 125);
+img.modal-image {
+    opacity: 1;
+    margin-top: 9%;
+    margin-bottom: 6%;
+    margin-left: 13%;
+    margin-right: 13%;
 }
 .close {
     color: antiquewhite;

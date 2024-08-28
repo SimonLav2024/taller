@@ -38,13 +38,7 @@ function cargarImagen(entradas, observador){
         }
     });
 }
-/*
-    1. Crear una instancia de la clase IntersectionObserver
-    2. Le pasamos por argumento dos parámetros: la función a ejecutar y un objeto con parámetros
-    root: null -- indica que va a observar elementos que entren en el viewport que es la pantalla
-    rootMargin -- establece un margen en el viewport que nos sirve para agrandar o disminuir el tamaño del viewport a efecto de cuando queremos que empiece a ejecutarse el código
-    threshold -- toma un valor entre 0 y 1 -- si tiene un valor de 0.5 el código empieza a ejecutarse cuando el 50% del elemento observado entre en el viewport
-*/
+
 const observador = new IntersectionObserver(cargarImagen, {
     root: null,
     rootMargin: '0px',
@@ -71,7 +65,10 @@ const closeBtn = document.querySelector(".close");
 
 thumbnail.forEach(thumb => {
     thumb.addEventListener("click", () => {
+        console.log(thumb);
         modal.style.display = "block";
+        modalImg.src = thumb.getAttribute("data-full");
+        modalImg.alt = thumb.alt;
     });
 });
 
@@ -79,10 +76,6 @@ thumbnail.forEach(thumb => {
 closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
 });
-
-// esto tambien sirve para para cerrar el modal
-// closeBtn.onclick = () => { modal.style.display = "none"};
-//varias formas pero mismo resultado aunk la segunda tiene menos lineas de codigo
 
 window.onclick = (event) => {
     if(event.target.classList.contains("modal-content")){
