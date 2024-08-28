@@ -1,18 +1,18 @@
 
 
 const products = [
-    { id: 1, name: "BMW Serie 7 740i", price: 19.99, image: "../img/camisetaChica1.jpeg", sizes: ["S", "M", "L", "XL"], year: "1994" },
-    { id: 2, name: "Camiseta Chica", price: 19.99, image: "../img/camisetaChica2.jpeg", sizes: ["S", "M", "L", "XL"] },
-    { id: 3, name: "Camiseta Chica", price: 19.99, image: "../img/camisetaChica3.jpeg", sizes: ["S", "M", "L", "XL"] },
-    { id: 4, name: "Camiseta Chica", price: 19.99, image: "../img/camisetaChica4.jpeg", sizes: ["S", "M", "L", "XL"] },
-    { id: 5, name: "Camiseta Chico", price: 19.99, image: "../img/camisetaChico1.jpeg", sizes: ["S", "M", "L", "XL"] },
-    { id: 6, name: "Camiseta Chico", price: 19.99, image: "../img/camisetaChico2.jpeg", sizes: ["S", "M", "L", "XL"] },
-    { id: 7, name: "Camiseta Chico", price: 19.99, image: "../img/camisetaChico3.jpeg", sizes: ["S", "M", "L", "XL"] },
-    { id: 8, name: "Pantalón", price: 39.99, image: "../img/pantalon.jpeg", sizes: ["28", "30", "32", "34"] },
-    { id: 9, name: "Pantalón", price: 29.99, image: "../img/pantalonPirata.jpeg", sizes: ["28", "30", "32", "34"] },
-    { id: 10, name: "Vestido", price: 59.99, image: "../img/vestido1.jpeg", sizes: ["38", "39", "40", "41", "42"] },
-    { id: 11, name: "Vestido", price: 49.99, image: "../img/vestido2.jpeg", sizes: ["38", "39", "40", "41", "42"] },
-    { id: 12, name: "Vestido", price: 39.99, image: "../img/vestido3.jpeg", sizes: ["38", "39", "40", "41", "42"] },
+    { id: 1, name: "BMW Serie 7 740i", price: 5900, image: "../img/cars/740-i-1.jpg", sizes: ["S", "M", "L", "XL"], year: "1994", km: "234000" },
+    { id: 2, name: "Honda Accord Sport 2.0", price: 19.99, image: "../img/camisetaChica2.jpeg", sizes: ["S", "M", "L", "XL"], year: "2006", km: "" },
+    { id: 3, name: "Hyundai Coupe", price: 19.99, image: "../img/camisetaChica3.jpeg", sizes: ["S", "M", "L", "XL"], year: "", km: "" },
+    { id: 4, name: "", price: 19.99, image: "../img/camisetaChica4.jpeg", sizes: ["S", "M", "L", "XL"], year: "", km: "" },
+    { id: 5, name: "", price: 19.99, image: "../img/camisetaChico1.jpeg", sizes: ["S", "M", "L", "XL"], year: "", km: "" },
+    { id: 6, name: "", price: 19.99, image: "../img/camisetaChico2.jpeg", sizes: ["S", "M", "L", "XL"], year: "", km: "" },
+    { id: 7, name: "", price: 19.99, image: "../img/camisetaChico3.jpeg", sizes: ["S", "M", "L", "XL"], year: "", km: "" },
+    { id: 8, name: "", price: 39.99, image: "../img/pantalon.jpeg", sizes: ["28", "30", "32", "34"], year: "", km: "" },
+    { id: 9, name: "", price: 29.99, image: "../img/pantalonPirata.jpeg", sizes: ["28", "30", "32", "34"], year: "", km: "" },
+    { id: 10, name: "", price: 59.99, image: "../img/vestido1.jpeg", sizes: ["38", "39", "40", "41", "42"], year: "", km: "" },
+    { id: 11, name: "", price: 49.99, image: "../img/vestido2.jpeg", sizes: ["38", "39", "40", "41", "42"], year: "", km: "" },
+    { id: 12, name: "", price: 39.99, image: "../img/vestido3.jpeg", sizes: ["38", "39", "40", "41", "42"], year: "", km: "" },
 ];
 
 const productosContainer = document.getElementById("products");
@@ -29,10 +29,9 @@ function renderizarProducts(){
         <div class="product-card">  
             <img src="${producto.image}" alt="${producto.name}"/>
             <h3>${producto.name}</h3>
+            <h4>Del año ${producto.year}</h4>
+            <h4>${producto.km} kilómetros</h4>
             <p>Precio:<b> ${producto.price} €</b></p>
-            <select id="size-${producto.id}">
-                ${producto.sizes.map(size => `<option value="${size}">${size}</option>`).join(" ")}
-            </select>
             <button onclick="addCarrito(${producto.id})">Añadir al carrito</button>
         </div>`
     ).join(" ");
