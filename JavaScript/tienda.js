@@ -76,4 +76,7 @@ function cargarCarrito(){
 }
 renderizarProducts();
 cargarCarrito();
-  
+
+mostrarCarrito.addEventListener('click', () => {
+    mostrarCarrito.classList.toggle('pausadoBtn');
+});

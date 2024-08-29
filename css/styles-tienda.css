@@ -1,30 +1,59 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-image: url("/img/Great_Wave_off_Kanagawa.jpg");
+    background-size: 3000px; 
+    background-position: center;
+    background-repeat: repeat;
+}
+@media (min-width: 3000px) {
+    body {
+        background-size: cover;
+    }
 }
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
+.container h1 {
+    background-color: #ffffffd8;
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    text-shadow: 2px 2px 4px rgba(80, 2, 2, 0.5);
+    text-align: center;
+}
+.container p {
+    font-size: 21px;
+}
+@media (max-width: 600px) {
+    .container {
+        margin-right: 6%;
+        margin-left: none;
+    }
+}
 .products {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
 }
 .product-card {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin: 10px;
     padding: 15px;
-    width: 250px;
+    width: 100%;
 }
 .product-card img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
     border-radius: 8px;
 }
@@ -39,7 +68,7 @@ body {
     width: 100%;
 }
 .product-card button {
-    background-color: #4CAF50;
+    background-color: #000000;
     border: none;
     color: white;
     padding: 10px;
@@ -51,6 +80,9 @@ body {
     cursor: pointer;
     border-radius: 4px;
     width: 100%;
+}
+.product-card button:hover {
+    background-color: #4CAF50;
 }
 #cart {
     position: fixed;
@@ -96,6 +128,9 @@ body {
     cursor: pointer;
     border-radius: 4px;
 }
+#cart-items .cart-item button:hover {
+    background-color: #910f06;
+}
 #cart-total {
     padding: 20px;
     font-weight: bold;
@@ -106,9 +141,10 @@ body {
     right: 20px;
     top: 20px;
     background-color: #4CAF50;
-    border: none;
+    border: 1px solid;
+    border-color: #000000;
     color: white;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -117,9 +153,36 @@ body {
     cursor: pointer;
     border-radius: 50%;
     z-index: 1000;
+    animation-name: scale;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.pausadoBtn {
+    animation-play-state: paused;
+}
+#toggle-cart:hover {
+    animation-name: scale;
+    animation-duration: .3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes scale {
+    from {transform: scale(1);}
+    to {transform: scale(1.2);}
 }
 @media (max-width: 600px) {
     .product-card {
         width: calc(100% - 20px);
+    }
+}
+.btnUp {
+    bottom: 30px;
+    left: 150px;
+    position: fixed;
+}
+@media (min-width: 1900px) {
+    .btnUp {
+        left: 50px;
     }
 }
