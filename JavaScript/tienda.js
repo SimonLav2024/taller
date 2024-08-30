@@ -22,9 +22,9 @@ const carrito = document.getElementById("cart");
 const totalCarrito = document.getElementById("cart-total");
 const contador = document.getElementById("contador");
 
-const toggleBtn = document.getElementById("toggleBtn");
-const sidebar = document.getElementById("sidebar");
-const content = document.getElementById("content");
+const menuBtn = document.querySelector('.menu-btn');
+const sidebar = document.querySelector('.sidebar');
+let menuOpen = false;
 
 function renderizarProducts(){
     productosContainer.innerHTML = products.map(producto => `
@@ -90,10 +90,17 @@ mostrarCarrito.addEventListener('click', () => {
     mostrarCarrito.classList.toggle('pausadoBtn');
 });
 
-
-
-toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle("active");
+menuBtn.addEventListener('click', () => {
+    if (!menuOpen) {
+        menuBtn.classList.add('open');
+        sidebar.classList.add('open');
+        menuOpen = true;
+    } else {
+        menuBtn.classList.remove('open');
+        sidebar.classList.remove('open');
+        menuOpen = false;
+    }
 });
+
 
 
