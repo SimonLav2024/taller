@@ -42,20 +42,14 @@ body {
     color: white;
     text-decoration: none;
 }
-#content {
-    margin-left: 0;
-    padding: 20px;
-    transition: all 0.3s;
-}
-#content.active {
-    margin-left: 250px;
-}
 #toggleBtn {
     position: fixed;
     left: 10px;
     top: 10px;
-    z-index: 1;
+    z-index: 1000;
 }
+
+
 
 
 .container {

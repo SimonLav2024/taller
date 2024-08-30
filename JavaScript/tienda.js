@@ -95,3 +95,5 @@ mostrarCarrito.addEventListener('click', () => {
 toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle("active");
 });
+
+
