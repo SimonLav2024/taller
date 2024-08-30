@@ -15,6 +15,49 @@ body {
         background-size: cover;
     }
 }
+
+
+#sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #333;
+    padding-top: 60px;
+    transition: all 0.3s;
+}
+#sidebar.active {
+    left: 0;
+}
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#sidebar ul li {
+    padding: 10px;
+}
+#sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+#content {
+    margin-left: 0;
+    padding: 20px;
+    transition: all 0.3s;
+}
+#content.active {
+    margin-left: 250px;
+}
+#toggleBtn {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1;
+}
+
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -50,6 +93,11 @@ body {
     margin: 10px;
     padding: 15px;
     width: 100%;
+}
+.carrito {
+    display: block;
+    position: fixed;
+    z-index: 1;
 }
 .product-card img {
     width: 100%;
@@ -178,11 +226,62 @@ body {
 }
 .btnUp {
     bottom: 30px;
-    left: 150px;
+    left: 300px;
     position: fixed;
 }
-@media (min-width: 1900px) {
+.btnUp:hover {
+    animation-name: moveUp;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes moveUp {
+    from {transform: translateY(-15px);}
+    to {transform: translate(0);}
+}
+
+@media (max-width: 1600px) {
     .btnUp {
         left: 50px;
+    }
+}
+@media (min-width: 601px) {
+    .arriba {
+        display: none;
+    }
+    hr {
+        display: none;
+    }
+}
+.arriba {
+    text-align: center;
+}
+.arriba button {
+    width: 80%;
+    
+    background-color: #333;
+    border-radius: 8px;
+    animation-name: moveUp;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.a {
+    text-decoration: none;
+    width: 100%;
+    color: azure;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+}
+@media (max-width: 600px) {
+    .btnUp {
+        display: none;
+    }
+    .arriba {
+        display: end;
     }
 }

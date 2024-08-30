@@ -7,16 +7,33 @@
     <link rel="stylesheet" href="css/styles-tienda.css">
 </head>
 <body>
+    <button id="toggleBtn">☰ Menú</button>
+    
+    <div id="sidebar">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+
     <div class="container">
         <h1 id="titulo">Tienda Online: Tu tienda de coches de confianza<p>Talleres Moyano</p></h1>
         <div class="products" id="products"></div>
+    </div>
+
+    <div class="arriba">
+        <hr>
+        <button><a href="#titulo" class="a">▲<p></p>Arriba<p></p>▲ </a></button>
+        <hr>
     </div>
 
     <button id="toggle-cart">🛒
         <span id="contador"></span>
     </button>
 
-    <div id="cart">
+    <div id="cart" class="carrito">
         <h2>Carrito</h2>
         <div id="cart-items"></div>
         <div id="cart-total">Total: €0.00</div>

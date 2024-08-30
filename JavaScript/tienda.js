@@ -1,8 +1,7 @@
 
-
 const products = [
-    { id: 1, name: "BMW Serie 7 740i", price: 5900, image: "../img/cars/740-i-1.jpg", year: "1994", km: "234000" },
-    { id: 2, name: "Honda Accord Sport 2.0", price: 6450, image: "../img/cars/honda-accord.jpg", year: "2006", km: "130000" },
+    { id: 1, name: "BMW Serie 7 740i", price: 5900, image: "../img/cars/bmw-740.jpg", year: "1994", km: "234000" },
+    { id: 2, name: "Honda Accord Sport 2.0", price: 6450, image: "../img/cars/honda-accord-7.jpg", year: "2006", km: "130000" },
     { id: 3, name: "Hyundai Coupe 2.0", price: 3500, image: "../img/cars/hyundai-coupe.jpg", year: "2004", km: "156321" },
     { id: 4, name: "Toyota Celica GTS", price: 7000, image: "../img/cars/toyota-celica.jpg", year: "2005", km: "160000" },
     { id: 5, name: "Toyota Supra MK4", price: 54000, image: "../img/cars/toyota-supra.jpg", year: "1994", km: "56000" },
@@ -22,6 +21,10 @@ const mostrarCarrito = document.getElementById("toggle-cart");
 const carrito = document.getElementById("cart");
 const totalCarrito = document.getElementById("cart-total");
 const contador = document.getElementById("contador");
+
+const toggleBtn = document.getElementById("toggleBtn");
+const sidebar = document.getElementById("sidebar");
+const content = document.getElementById("content");
 
 function renderizarProducts(){
     productosContainer.innerHTML = products.map(producto => `
@@ -43,8 +46,8 @@ function addCarrito(productoId){
 function updateCarrito(){
     itemsCarrito.innerHTML = cardProducts.map((item, index) => 
         `<div class="cart-item">
-            <span>${item.name} - ${item.price.toFixed(2)} €</span>
-            <button onclick="eliminarCarrito(${index})">Eliminar</button>
+            <span class="elim">${item.name} - ${item.price.toFixed(2)} €</span>
+            <button onclick="eliminarCarrito(${index})" class="elim">Eliminar</button>
         </div>`).join(" ");
 
     const total = cardProducts.reduce((sum, item) => sum + item.price, 0);
@@ -63,6 +66,12 @@ function eliminarCarrito(indice){
 }
 mostrarCarrito.addEventListener('click', () => {
     carrito.classList.toggle("open");
+    
+});
+carrito.addEventListener('click', (event) => {
+    if(!event.target.classList.contains("elim")) {
+        carrito.classList.toggle("open");
+    }
 });
 function guardarCarrito(){
     localStorage.setItem("clave", JSON.stringify(cardProducts));
@@ -79,4 +88,10 @@ cargarCarrito();
 
 mostrarCarrito.addEventListener('click', () => {
     mostrarCarrito.classList.toggle('pausadoBtn');
+});
+
+
+
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle("active");
 });
