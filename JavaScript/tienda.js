@@ -28,13 +28,15 @@ let menuOpen = false;
 
 function renderizarProducts(){
     productosContainer.innerHTML = products.map(producto => `
-        <div class="product-card">  
-            <img src="${producto.image}" alt="${producto.name}"/>
-            <h3>${producto.name}</h3>
-            <h4>Del año ${producto.year}</h4>
-            <h4>${producto.km} kilómetros</h4>
-            <p>Precio:<b> ${producto.price} €</b></p>
-            <button onclick="addCarrito(${producto.id})">Comprar</button>
+        <div class="fade-in">
+            <div class="product-card">  
+                <img src="${producto.image}" alt="${producto.name}"/>
+                <h3>${producto.name}</h3>
+                <h4>Del año ${producto.year}</h4>
+                <h4>${producto.km} kilómetros</h4>
+                <p>Precio:<b> ${producto.price} €</b></p>
+                <button onclick="addCarrito(${producto.id})">Comprar</button>
+            </div>
         </div>`
     ).join(" ");
 }
@@ -101,3 +103,22 @@ menuBtn.addEventListener('click', () => {
         menuOpen = false;
     }
 });
+
+function handleScroll() {
+    const elements = document.querySelectorAll('.fade-in');
+    
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+      if (windowHeight * 0.75 <= rect.bottom) {
+        el.classList.add('is-visible');
+      }else if (rect.top <= windowHeight * 0.75){
+        el.classList.add('is-visible');
+      }else{
+        el.classList.remove('is-visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('load', handleScroll);

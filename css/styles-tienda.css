@@ -131,6 +131,13 @@ body {
         margin-left: none;
     }
 }
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.fade-in.is-visible {
+    opacity: 1;
+}
 .products {
     display: flex;
     flex-direction: column;
@@ -346,3 +353,6 @@ body {
     margin-top: 1rem;
     padding: 1px;
 }
+
+
+
