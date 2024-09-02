@@ -1,6 +1,6 @@
 
 const products = [
-    { id: 1, name: "BMW Serie 7 740i", price: 5900, image: "../img/cars/bmw-740.jpg", year: "1994", km: "234000" },
+    { id: 1, name: "BMW Serie 7 740i", price: 5900, image: "./../img/cars/bmw-740.jpg", year: "1994", km: "234000" },
     { id: 2, name: "Honda Accord Sport 2.0", price: 6450, image: "../img/cars/honda-accord-7.jpg", year: "2006", km: "130000" },
     { id: 3, name: "Hyundai Coupe 2.0", price: 3500, image: "../img/cars/hyundai-coupe.jpg", year: "2004", km: "156321" },
     { id: 4, name: "Toyota Celica GTS", price: 7000, image: "../img/cars/toyota-celica.jpg", year: "2005", km: "160000" },
