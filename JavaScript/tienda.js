@@ -122,12 +122,10 @@ function handleScroll() {
       const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
       
-      if (windowHeight * 0.75 <= rect.bottom) {
-        el.classList.add('is-visible');
-      }else if (rect.top <= windowHeight * 0.75){
-        el.classList.add('is-visible');
-      }else{
+      if (windowHeight * 0.75 <= rect.top) {
         el.classList.remove('is-visible');
+      }else{
+        el.classList.add('is-visible');
       }
     });
   }
