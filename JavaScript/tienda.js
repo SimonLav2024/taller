@@ -16,7 +16,7 @@ const products = [
 
 // const productsJSON = JSON.stringify(products);
 
-// fetch('JavaScript/coches.json')
+// fetch('/coches.json')
 //   .then(response => response.json())
 //   .then(data => {
 //     console.log(data);
@@ -78,8 +78,11 @@ function eliminarCarrito(indice){
     updateCarrito();
 }
 mostrarCarrito.addEventListener('click', () => {
-    carrito.classList.toggle("open");
-    
+    if(carrito.classList.toggle("open")){
+        sidebar.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuOpen = false;
+    }
 });
 carrito.addEventListener('click', (event) => {
     if(!event.target.classList.contains("elim")) {
@@ -108,6 +111,7 @@ menuBtn.addEventListener('click', () => {
         menuBtn.classList.add('open');
         sidebar.classList.add('open');
         menuOpen = true;
+        carrito.classList.remove("open");
     } else {
         menuBtn.classList.remove('open');
         sidebar.classList.remove('open');
