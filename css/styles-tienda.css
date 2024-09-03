@@ -16,9 +16,6 @@ body {
     }
 }
 
-
-
-
 .menu-btn {
     position: fixed;
     top: 20px;
@@ -108,7 +105,6 @@ body {
     font-size: 18px;
 }
 
-
 .container {
     max-width: 1200px;
     margin: auto;
@@ -135,7 +131,7 @@ body {
         flex-direction: column;
         align-items:center;
         text-align: center;
-        padding: 3rem;
+        padding: 0rem;
     }
 }
 .fade-in {
@@ -273,7 +269,7 @@ body {
 @media (max-width: 600px) {
     #toggle-cart {
         position: absolute;
-        right: 4%;
+        right: 1%;
         top: 1%;
         z-index: 1000;
     }
