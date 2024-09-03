@@ -135,3 +135,29 @@ function handleScroll() {
   }
   window.addEventListener('scroll', handleScroll);
   window.addEventListener('load', handleScroll);
+
+
+// Esto es para hacer la paginación
+// let pagina = 1;
+// const botonAnterior = document.getElementById("btnAnterior");
+// const botonSiguente = document.getElementById("btnSiguiente");
+// botonSiguente.addEventListener("click", () => {
+//     if(pagina < getTotalPaginas()){
+//         pagina++
+//         // mostrarPeliculas()
+//         botonAnterior.style.display = "block"
+//     }
+//     if(pagina === getTotalPaginas()){
+//         botonSiguente.style.display = "none"
+//     }
+// })
+
+// botonAnterior.addEventListener("click", () => {
+//     if(pagina === 1){
+//         botonAnterior.style.display = "none"
+//     }else{
+//         pagina--
+//         // mostrarPeliculas()
+//     }
+// })
+// Fin

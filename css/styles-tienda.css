@@ -354,5 +354,62 @@ body {
     padding: 1px;
 }
 
+/* paginación */
+.paginacion {
+	bottom: 10%;
+	background: var(--secundary);
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
 
+.pagR {
+	cursor: pointer;
+	background-color:rgb(0, 0, 0);
+	color: white;
+	transition: .3s ease all;
+	padding: 14px 16px;
+    border-radius: 8px;
+}
+
+.pagR:hover {
+	background-color: rgb(16, 16, 104);
+    color: white;
+    animation-name: moveR;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+@keyframes moveR {
+    from {transform: translateX(0px);}
+    to {transform: translate(10px);}
+}
+.pagA {
+    cursor: pointer;
+	background-color:rgb(0, 0, 0);
+	color: white;
+	transition: .3s ease all;
+	padding: 14px 16px;
+    border-radius: 8px;
+}
+.pagA:hover {
+	background-color: rgb(16, 16, 104);
+    color: white;
+    animation-name: moveA;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+@keyframes moveA {
+    from {transform: translateX(0px);}
+    to {transform: translate(-10px);}
+}
+#btnAnterior {
+	/* display: none; */
+}
+/* Fin paginación */
 
