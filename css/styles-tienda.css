@@ -36,6 +36,9 @@ body {
     background-color: #2c3e50;
     z-index: 2;
 }
+.menu-btn:hover {
+    background-color: #00274d;
+}
 @media (max-width: 600px) {
     .menu-btn {
         position: relative;
@@ -262,6 +265,7 @@ body {
     cursor: pointer;
     border-radius: 50%;
     z-index: 1000;
+    transition: all 0.5s ease-in-out;
 }
 #toggle-cart:hover {
     background-color: #00274d;
