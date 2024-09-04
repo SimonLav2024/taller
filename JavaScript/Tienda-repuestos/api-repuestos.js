@@ -13,7 +13,7 @@ export function numeroElementosPorPag() {
     return numeroElementos
 }
 
-export async function cargarProductos(pagina) {
+export async function cargarProductos() {
     try {
         const URLrepuestos = "../../piezas.json"
         const repuestosAPI = await fetch(URLrepuestos)
