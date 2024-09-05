@@ -41,7 +41,7 @@ function renderizarProducts(){
     productosContainer.innerHTML = products.map(producto => `
         <div class="fade-in">
             <div class="product-card">  
-                <img src="${producto.image}" alt="${producto.name}"/>
+                <img data-src="${producto.image}" class="lazy" alt="${producto.name}"/>
                 <h3>${producto.name} ${producto.model}</h3>
                 <h4>Del año ${producto.year}</h4>
                 <h4>${producto.km} kilómetros</h4>
@@ -136,4 +136,25 @@ function handleScroll() {
   window.addEventListener('scroll', handleScroll);
   window.addEventListener('load', handleScroll);
 
+// Ejemplo de lazy loading con Intersection Observer
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
+    if ("IntersectionObserver" in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazy");
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    }
+});
+// Fin
