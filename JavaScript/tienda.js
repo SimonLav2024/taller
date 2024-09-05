@@ -35,7 +35,7 @@ function renderizarProducts(){
                 <h4>Del año ${producto.year}</h4>
                 <h4>${producto.km} kilómetros</h4>
                 <p>Precio:<b> ${producto.price} €</b></p>
-                <button onclick="addCarrito(${producto.id})">Comprar</button>
+                <button class="botonComprar" onclick="addCarrito(${producto.id})">Comprar</button>
             </div>
         </div>`
     ).join(" ");

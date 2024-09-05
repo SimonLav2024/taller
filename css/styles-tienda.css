@@ -195,6 +195,9 @@ body {
     border-radius: 4px;
     width: 100%;
 }
+.botonComprar:hover {
+    background-color: #910f06;
+}
 #cart {
     position: fixed;
     right: -300px;

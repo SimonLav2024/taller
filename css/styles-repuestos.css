@@ -165,10 +165,10 @@ body {
 
 .products {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
 }
-.product-card {
+.repuesto {
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -181,23 +181,23 @@ body {
     position: fixed;
     z-index: 1;
 }
-.product-card img {
+.repuesto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
 }
-.product-card h3 {
+.repuesto h3 {
     margin: 10px 0;
 }
-.product-card p {
+.repuesto p {
     margin: 5px 0;
 }
-.product-card select {
+.repuesto select {
     margin: 10px 0;
     width: 100%;
 }
-.product-card button {
+.repuesto button {
     background-color: #000000;
     border: none;
     color: white;
@@ -210,6 +210,9 @@ body {
     cursor: pointer;
     border-radius: 4px;
     width: 100%;
+}
+.repuesto button:hover {
+    background-color: #910f06;
 }
 #cart {
     position: fixed;
