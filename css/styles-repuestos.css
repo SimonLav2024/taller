@@ -162,12 +162,23 @@ body {
         text-align: center;
         padding: 0rem;
     }
+    .container h1 {
+        width: auto;
+        margin-top: 1rem;
+    }
 }
 
 .products {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+@media (max-width: 600px) {
+    .products {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
 }
 .repuesto {
     background-color: rgb(255, 255, 255);
@@ -178,6 +189,14 @@ body {
     width: 20%;
     display: flex;
     flex-direction: column;
+}
+@media (max-width: 600px) {
+    .repuesto {
+        width: auto;
+    }
+    .container{
+        text-align: center;
+    }
 }
 .carrito {
     display: block;
