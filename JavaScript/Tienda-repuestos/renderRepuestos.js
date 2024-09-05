@@ -5,6 +5,8 @@ import { getProductos } from "./api-repuestos.js";
 
 import { addCarrito, updateCarrito } from "./meterEnCarro.js";
 
+updateCarrito()
+
 const urlImg = "https://image.tmdb.org/t/p/w500"
 
 export function displayRepuestos(inicio, fin){
@@ -20,7 +22,7 @@ export function displayRepuestos(inicio, fin){
                 <p class="precio">${repuesto.precio} €</p>
                 <p class="marca">${repuesto.marca}</p>
                 <p class="modelo_valido">${repuesto.modelo_valido}</p>
-                <button id="add">Comprar</button>
+                <button data-set="${repuesto.id}" class="add">Comprar</button>
                 </div>
             </div>
             `
@@ -29,9 +31,10 @@ export function displayRepuestos(inicio, fin){
         contenedor = "<p>No hay productos disponibles</p>"
     }
     document.getElementById("products").innerHTML = contenedor;
-    const btnComprar = document.getElementById("add");
-    btnComprar.addEventListener("click", () => {
-        addCarrito();
-        updateCarrito();
-    })
-}
+
+    const botonesComprar = document.querySelectorAll(".add");
+    
+    botonesComprar.forEach(boton => {
+        boton.addEventListener("click", addCarrito)
+    });
+    }

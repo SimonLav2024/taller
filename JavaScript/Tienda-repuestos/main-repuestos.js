@@ -10,6 +10,7 @@ import { cargarProductos, getTotalPaginas, numeroElementosPorPag } from "./api-r
 import { displayRepuestos } from "./renderRepuestos.js";
 // Fin
 
+
 // Esto es para hacer la paginación
 let pagina = 1;
 
@@ -48,6 +49,8 @@ async function mostrarProductos(){
     hideLoading();
 }
 mostrarProductos();
+
+
 // Fin
 
 // Sidebar
