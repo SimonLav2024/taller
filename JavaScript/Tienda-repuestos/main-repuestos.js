@@ -30,22 +30,25 @@ botonSiguente.addEventListener("click", () => {
 })
 
 botonAnterior.addEventListener("click", () => {
+    if(pagina > 1) {
+        pagina--
+        const inicio = (pagina * numeroElementosPorPag()) - numeroElementosPorPag()
+        const fin = pagina * numeroElementosPorPag() - 1
+        displayRepuestos(inicio, fin)
+    }
     if(pagina === 1){
         botonAnterior.style.display = "none"
-    }else{
-        pagina--
-        displayRepuestos(inicio, fin)
     }
 })
 // Fin
 
 // La funcion que se encarga de mostrar todo lo que hay por pantalla en el contenedor
 let inicio = 0;
-let fin = 9;
+
 async function mostrarProductos(){
     showLoading();
     await cargarProductos();
-    displayRepuestos(inicio, fin)
+    displayRepuestos(inicio, numeroElementosPorPag())
     hideLoading();
 }
 mostrarProductos();
