@@ -14,17 +14,6 @@ const products = [
     { id: 12, name: "Mercedes-Benz", model: "W201", price: 54000, image: "./img/cars/mercedes.jpg", year: "1990", km: "356000" },
 ];
 
-// const productsJSON = JSON.stringify(products);
-
-// fetch('/coches.json')
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log(data);
-//   } )
-//   .catch(error => console.error('Error al cargar el archivo JSON:', error));
-
-    
-
 const productosContainer = document.getElementById("products");
 let cardProducts = [];
 const itemsCarrito = document.getElementById("cart-items");
@@ -136,7 +125,7 @@ function handleScroll() {
   window.addEventListener('scroll', handleScroll);
   window.addEventListener('load', handleScroll);
 
-// Ejemplo de lazy loading con Intersection Observer
+// Lazy loading con Intersection Observer
 document.addEventListener("DOMContentLoaded", function() {
     var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
