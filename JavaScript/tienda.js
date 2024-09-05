@@ -30,7 +30,7 @@ function renderizarProducts(){
     productosContainer.innerHTML = products.map(producto => `
         <div class="fade-in">
             <div class="product-card">  
-                <img data-src="${producto.image}" class="lazy" alt="${producto.name}"/>
+                <img src="${producto.image}" class="lazy" alt="${producto.name}"/>
                 <h3>${producto.name} ${producto.model}</h3>
                 <h4>Del año ${producto.year}</h4>
                 <h4>${producto.km} kilómetros</h4>
