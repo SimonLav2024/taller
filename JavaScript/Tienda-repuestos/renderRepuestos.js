@@ -16,7 +16,7 @@ export function displayRepuestos(inicio, fin){
         repuestos.slice(inicio, fin).map(repuesto => {
             contenedor += `
             <div class="repuesto">
-            <img class="imagen" src="${urlImg}${repuesto.img}" alt="${repuesto.nombre}"></img>
+            <img class="imagen" src="${repuesto.img}" alt="${repuesto.nombre}"></img>
             <h3>${repuesto.nombre}</h3>
                 <div class="repuesto-texto">
                 <p class="precio">${repuesto.precio} €</p>
