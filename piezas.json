@@ -1,6 +1,6 @@
 {"piezas": [
       {"id":"1", "img": "img/Repuestos/motor-arranque.jpg", "nombre": "Motor de Arranque", "precio": 205.58, "marca": "ATE", "modelo_valido": ["Fiat 500"]},
-      {"id":"2", "img": "img/Repuestos/pastilla-freno.jpg", "nombre": "Pastilla de Freno Delantera","precio": 21.78,"marca": "TRW","modelo_valido": ["Honda Civic", "Toyota Corolla", "Lexus RX"]},{"nombre": "Bujía de Encendido", "precio": 39.49,  "marca": "KYB",  "modelo_valido": ["Jeep Cherokee", "Mazda CX-5", "Hyundai Elantra", "Lexus RX"]},
+      {"id":"2", "img": "img/Repuestos/pastilla-freno.jpg", "nombre": "Pastilla de Freno Delantera","precio": 21.78,"marca": "TRW","modelo_valido": ["Honda Civic", "Toyota Corolla", "Lexus RX"]},
       {"id":"3", "img": "img/Repuestos/alternador.jpg", "nombre": "Alternador",  "precio": 137.57,  "marca": "Delphi",  "modelo_valido": ["Chevrolet Cruze", "Toyota Corolla", "Hyundai Elantra", "Volvo XC60"]},
       {"id":"4", "img": "img/Repuestos/bobina-encendido.jpg", "nombre": "Bobina de Encendido",  "precio": 202.97,  "marca": "ATE",  "modelo_valido": ["Audi Q5", "Toyota 4Runner", "Mercedes C-Class", "Nissan Altima"]},
       {"id":"5", "img": "img/Repuestos/filtro-habitaculo.jpg", "nombre": "Filtro de Habitáculo", "precio": 130.08, "marca": "NGK", "modelo_valido": ["Opel Astra", "Lexus RX", "Honda Civic"]},
