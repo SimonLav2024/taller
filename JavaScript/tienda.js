@@ -1,4 +1,5 @@
 
+
 const products = [
     { id: 1, name: "BMW", model: "Serie 7 740i", price: 5900, image: "./img/cars/bmw-740.jpg", year: "1994", km: "234000" },
     { id: 2, name: "Honda", model: "Accord Sport 2.0", price: 6450, image: "./img/cars/honda-accord-7.jpg", year: "2006", km: "130000" },
@@ -124,6 +125,8 @@ function handleScroll() {
   }
   window.addEventListener('scroll', handleScroll);
   window.addEventListener('load', handleScroll);
+
+
 
 // Lazy loading con Intersection Observer
 // document.addEventListener("DOMContentLoaded", function() {
