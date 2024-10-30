@@ -1,4 +1,5 @@
 
+document.addEventListener('DOMContentLoaded', function(){
 // Parallax
 window.addEventListener('scroll', function() {
     var parallax = document.getElementById('parallax');
@@ -83,3 +84,56 @@ window.onclick = (event) => {
     }
 }
 //fin
+
+// -------------------------------------formulario--------------------------------------
+
+// ---------------funcion para mostrar los errores en columna si hay mas de uno--------------------
+function mostrarErroresColumna(errores){
+    let texto = "";
+    errores.map(error => {
+        texto += `<p>${error}</p>`
+    });
+return texto;
+}
+// -----------------------------fin-----------------------------------
+
+    const form = document.getElementById("formulario");
+    const mensajeError = document.getElementById("mensajeError");
+    let errores = [];
+
+    form.addEventListener('submit', function(event){
+// -----------------------Nombre----------------------------------------------------------------------
+        const nombre = document.getElementById("nombre");
+        if(nombre.value.trim() === ""){
+        errores.push("El nombre es obligatorio.");
+        }
+    
+
+// -----------------------Correo electronico-----------------------------------------------------------
+    const correo = document.getElementById("correo");
+    if(correo.value.trim() === ""){
+        errores.push("El correo electronico es obligatorio.");
+    }else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value)){
+        errores.push("El formato del correo no es válido.");
+    }
+
+// ----------------------------Políticas---------------------------------------------------------------
+    const aceptoPoliticas = document.getElementById("aceptarAcuerdo");
+    if (!aceptoPoliticas.checked) {
+        errores.push("Debes aceptar las políticas de uso de datos.");
+    }
+
+// -----------------------mensaje error----------------------------------------------
+    if(errores.length > 0){
+        event.preventDefault();
+        mensajeError.innerHTML = mostrarErroresColumna(errores);
+        mensajeError.classList.remove("oculto");
+    }else{
+        mensajeError.classList.add("oculto");
+    }
+});
+
+
+});
+
+

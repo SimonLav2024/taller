@@ -203,7 +203,7 @@ hr {
     to {transform: scale(1.05);}
 }
 .form-cont {
-    background-color: antiquewhite;
+    background-color: rgb(235, 234, 233);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgb(0, 0, 0);
 }
@@ -214,6 +214,11 @@ hr {
 }
 .ancho-aj {
     width: 90%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(49, 48, 48);
+    border-style: none;
+
 }
 .boton-cita {
     margin-top: 1rem;
@@ -227,6 +232,9 @@ hr {
 }
 .boton-cita:hover {
     background-color: rgb(168, 168, 168);
+}
+.oculto {
+    display: none;
 }
 .anuncio {
     text-align: center;
