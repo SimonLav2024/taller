@@ -37,7 +37,7 @@ class Correo{
         $mail->Encoding = 'base64';
     
         // Configuración del remitente y destinatario
-        $mail->setFrom(MAIL_USER, '=?UTF-8?B?'.base64_encode('Administración').'?=');
+        $mail->setFrom(MAIL_USER, '=?UTF-8?B?'.base64_encode('Talleres Moyano').'?=');
          $mail->addAddress($forEmail, '=?UTF-8?B?'.base64_encode($forName).'?=');
     
     

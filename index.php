@@ -96,7 +96,7 @@
                             <b style="margin-top: 1rem;">Nombre y apellido: </b><input id="nombre" name="nombre" class="ancho-aj" type="text" placeholder="Nombre y apellido" required>
                             <b style="margin-top: 1rem;">Teléfono: </b><input class="ancho-aj" type="text" name="telefono" placeholder="Teléfono" required>
                             <b style="margin-top: 1rem;">Email: </b><input id="correo" name="correo" class="ancho-aj" type="email" placeholder="Email" required>
-                            <textarea class="ancho-aj" style="margin-top: 2rem;" name="mensaje" placeholder="Comentarios" required></textarea>
+                            <textarea class="ancho-aj" style="margin-top: 2rem; height: 6rem;" name="mensaje" placeholder="Describa lo más detalladamente posible lo que le pasa al coche o por qué solicita la cita con nosotros. Agilizará mucho el proceso de solicitud. Gracias" required></textarea>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="aceptarAcuerdo">
                                 <label class="form-check-label" for="aceptarAcuerdo">*Estas deacuerdo con que tus datos sean tratados por Talleres Moyano</label>
