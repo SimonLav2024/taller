@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -90,16 +92,16 @@
                     </div>
 
                     <div class="form-cont" id="form-cont">
-                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="formulario" class="formulario">
+                        <form action="verificarCorreo.php" method="POST" id="formulario" class="formulario">
                             <b style="margin-top: 1rem;">Nombre y apellido: </b><input id="nombre" name="nombre" class="ancho-aj" type="text" placeholder="Nombre y apellido" required>
                             <b style="margin-top: 1rem;">Teléfono: </b><input class="ancho-aj" type="text" name="telefono" placeholder="Teléfono" required>
-                            <b style="margin-top: 1rem;">Email: </b><input id="correo" name="correo" class="ancho-aj" type="email" name="" id="" placeholder="Email" required>
+                            <b style="margin-top: 1rem;">Email: </b><input id="correo" name="correo" class="ancho-aj" type="email" placeholder="Email" required>
                             <textarea class="ancho-aj" style="margin-top: 2rem;" name="mensaje" placeholder="Comentarios" required></textarea>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="aceptarAcuerdo">
                                 <label class="form-check-label" for="aceptarAcuerdo">*Estas deacuerdo con que tus datos sean tratados por Talleres Moyano</label>
                             </div>
-                            <input class="boton-cita" type="submit" value="Pide Cita">
+                            <input class="boton-cita" type="submit" name="enviar" value="Pide Cita">
                             <div class="oculto" id="mensajeError" role="alert">Error</div>
                         </form>
                     </div>
@@ -116,37 +118,7 @@
         <p>Todo lo que hay escrito es una obra de ficción y cualquier parecido con la realidad es puramente casual y no responsabiliza ni vincula al creador</p>
     </footer>
 
-    <?php
-    if(isset($_POST['enviar'])) {
-        // Recogemos los datos del formulario
-        $nombre = $_POST['nombre'];
-        $email = $_POST['email'];
-        $telefono = $_POST['telefono'];
-        $mensaje = $_POST['mensaje'];
-        
-        // Configuramos los detalles del email
-        $para = "aitorysimon@gmail.com"; // Cambia esto por tu email
-        $asunto = "Nuevo mensaje del formulario de contacto";
-        
-        // Construimos el cuerpo del mensaje
-        $contenido = "Nombre: " . $nombre . "\n";
-        $contenido .= "Telefono: " . $telefono . "\n";
-        $contenido .= "Email: " . $email . "\n\n";
-        $contenido .= "Mensaje:\n" . $mensaje;
-        
-        // Configuramos las cabeceras del email
-        $cabeceras = "From: " . $email . "\r\n";
-        $cabeceras .= "Reply-To: " . $email . "\r\n";
-        $cabeceras .= "X-Mailer: PHP/" . phpversion();
-        
-        // Enviamos el email
-        if(mail($para, $asunto, $contenido, $cabeceras)) {
-            echo "<p style='color: green;'>El mensaje se ha enviado correctamente.</p>";
-        } else {
-            echo "<p style='color: red;'>Hubo un error al enviar el mensaje.</p>";
-        }
-    }
-    ?>
+    
 
 
     <script src="JavaScript/code.js?v=2.0.0"></script>

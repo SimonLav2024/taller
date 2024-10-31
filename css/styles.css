@@ -4,7 +4,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 body {
-    background-image: url('/img/motor.jpeg');
+    background-image: url('../img/motor.jpeg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
