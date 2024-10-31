@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,8 +16,8 @@
             <a href="#parallax">Inicio</a>
             <a href="#services">Servicios</a>
             <a href="#form-cont">Contacto</a>
-            <a target="_blank" href="index-tienda.html">Tienda</a>
-            <a target="_blank" href="index-repuestos.html">Repuestos</a>
+            <a target="_blank" href="tienda.html">Tienda</a>
+            <a target="_blank" href="repuestos.html">Repuestos</a>
             <a href="#" id="boton" class="icon">&#9776;</a>
         </nav>
     </div>
@@ -52,7 +50,7 @@
                     
                     <div class="promotion">
                         <p>Talleres Moyano es un taller de alto standing que pone a los mecánicos más cualificados a su disposición. Nuestros talleres no sólo son la vanguardia de la mecánica moderna sino que son los talleres más competentes del mercado. Y lo más importante <b>¡todo a precios ridículos!</b> Somos el taller que tu quieres y el que tu coche necesita.</p>
-                        <p>Disponemos de servicio de grua las 24 horas los 365 dias del año; una <a target="_blank" style="color: red;" href="index-tienda.html">tienda</a> de los mejores coches del mercado; y una <a target="_blank" style="color: red;" href="index-repuestos.html">tienda de respuestos</a> a precios de coste.</p>
+                        <p>Disponemos de servicio de grua las 24 horas los 365 dias del año; una <a target="_blank" style="color: red;" href="tienda.html">tienda</a> de los mejores coches del mercado; y una <a target="_blank" style="color: red;" href="repuestos.html">tienda de respuestos</a> a precios de coste.</p>
                     </div>
                     
                     <h2 id="services" style="text-align: center;">Servicios</h2>
@@ -87,12 +85,13 @@
 
                     <div class="contact-info">
                         <p><strong>Horarios:</strong> Lunes a Viernes de 8:00 AM a 6:00 PM | Sábados de 9:00 AM a 1:00 PM</p>
-                        <p><strong>Dirección:</strong> Calle Tortola 34, polígono de Asegra, Granada, España</p>
+                        <p><strong>Dirección:</strong> <a target="_blank" href="https://maps.app.goo.gl/KbJGNMbUj97gxwa66" style="text-decoration: none; color: red;">Calle Tortola 34, polígono de Asegra, Granada, España</a></p>
                         <p><strong>Teléfono:</strong> ☎ 91 926 79 70</p>
                     </div>
 
                     <div class="form-cont" id="form-cont">
                         <form action="verificarCorreo.php" method="POST" id="formulario" class="formulario">
+                        <input type="hidden" name="formulario" value="taller">
                             <b style="margin-top: 1rem;">Nombre y apellido: </b><input id="nombre" name="nombre" class="ancho-aj" type="text" placeholder="Nombre y apellido" required>
                             <b style="margin-top: 1rem;">Teléfono: </b><input class="ancho-aj" type="text" name="telefono" placeholder="Teléfono" required>
                             <b style="margin-top: 1rem;">Email: </b><input id="correo" name="correo" class="ancho-aj" type="email" placeholder="Email" required>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon/favicon-repuestos.png" type="image/x-icon">
+    
+    <title>Repuestos Moyano</title>
+    <link rel="stylesheet" href="css/styles-repuestos.css">
+</head>
+<body>
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+    
+    <div class="menu-btn" id="subir">
+        <div class="menu-btn__burger"></div>
+    </div>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#titulo" class="txt">Inicio</a></li>
+            <li><a target="_blank" href="index.php" class="txt">Taller</a></li>
+            <li><a target="_blank" href="tienda.html" class="txt">Tienda de coches</a></li>
+            <li><a href="#form-cont" class="txt">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 id="titulo">Repuestos Moyano: la tienda que te lo arregla todo<p>Talleres Moyano</p></h1>
+        <div class="products" id="products"></div>
+    </div>
+
+    <div class="arriba">
+        <hr>
+        <button><a href="#toggle-cart" class="a">▲<p></p>Arriba<p></p>▲ </a></button>
+        <hr>
+    </div>
+
+    <button id="toggle-cart">🛒
+        <span id="contador"></span>
+    </button>
+
+    <div id="cart" class="carrito">
+        <h2>Carrito</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total">Total: €0.00</div>
+    </div>
+
+    <a href="#titulo" class="btnUp"><img src="img/icons/icons8-arriba-en-cuadrado-100.png" alt="Subir"></a>
+
+    <div class="paginacion">
+		<a href="#titulo" style="text-decoration: none;" id="btnAnterior" class="pagA">Anterior</a>
+		<a href="#titulo" style="text-decoration: none;" id="btnSiguiente" class="pagR">Siguiente</a>
+	</div>
+
+    <div class="form-cont" id="form-cont">
+        <form action="verificarCorreo.php" method="POST" id="formulario" class="formulario">
+            <input type="hidden" name="formulario" value="repuestos">
+            <b style="margin-top: 1rem;">Nombre y apellido: </b><input id="nombre" name="nombre" class="ancho-aj" type="text" placeholder="Nombre y apellido" required>
+            <b style="margin-top: 1rem;">Teléfono: </b><input class="ancho-aj" type="text" name="telefono" placeholder="Teléfono" required>
+            <b style="margin-top: 1rem;">Email: </b><input id="correo" name="correo" class="ancho-aj" type="email" placeholder="Email" required>
+            <textarea class="ancho-aj" style="margin-top: 2rem; height: 6rem;" name="mensaje" placeholder="Describa lo más detalladamente posible cual es su consulta o por qué quiere solicitar cita con nosotros. Agilizará mucho el proceso de solicitud. Gracias" required></textarea>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="aceptarAcuerdo">
+                <label class="form-check-label" for="aceptarAcuerdo">*Estas deacuerdo con que tus datos sean tratados por Talleres Moyano</label>
+            </div>
+            <input class="boton-cita" type="submit" name="enviar" value="Pide Cita">
+            <div class="oculto" id="mensajeError" role="alert">Error</div>
+        </form>
+    </div>
+
+    <footer class="footer-prima">
+        <p>® Todos los derechos reservados. Simón Lavdorenko Shyn</p>
+        <p>Todo lo que hay escrito es una obra de ficción y cualquier parecido con la realidad es puramente casual y no responsabiliza ni vincula al creador</p>
+    </footer>
+
+     <script type="module" src="JavaScript/Tienda-repuestos/main-repuestos.js"></script>
+</body>
+</html>

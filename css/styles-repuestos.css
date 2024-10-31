@@ -385,6 +385,44 @@ body {
     }
 }
 
+.form-cont {
+    background-color: rgb(235, 234, 233);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0, 0, 0);
+    width: 60%;
+	margin-left: 20%;
+	margin-top: 2rem;
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ancho-aj {
+    width: 90%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(49, 48, 48);
+    border-style: none;
+
+}
+.boton-cita {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 40%;
+    border-radius: 8px;
+    color: white;
+    background-color: rgba(36, 36, 36, 0.781);
+    cursor: pointer;
+}
+.boton-cita:hover {
+    background-color: rgb(168, 168, 168);
+}
+.oculto {
+    display: none;
+}
+
 .footer-prima {
     text-align: center;
     font-size: 12px;
