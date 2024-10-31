@@ -73,6 +73,13 @@ menuBtn.addEventListener('click', () => {
         menuOpen = false;
     }
 });
+sidebar.addEventListener('click', () => {
+    if(sidebar) {
+        menuBtn.classList.remove('open');
+        sidebar.classList.remove('open');
+        menuOpen = false;
+    }
+});
 // Fin
 
 // Carrito
