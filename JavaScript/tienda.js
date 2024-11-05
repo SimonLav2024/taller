@@ -74,7 +74,7 @@ function addCarrito(cocheId){
 function updateCarrito(){
     itemsCarrito.innerHTML = cardProducts.map((item, index) => 
         `<div class="cart-item">
-            <span class="elim">${item.marca} - ${item.precio} €</span>
+            <span class="elim">${item.marca} - ${item.modelo} ${item.precio} €</span>
             <button onclick="eliminarCarrito(${index})" class="elim">Eliminar</button>
         </div>`).join(" ");
 
