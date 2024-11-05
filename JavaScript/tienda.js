@@ -22,6 +22,7 @@ const mostrarCarrito = document.getElementById("toggle-cart");
 const carrito = document.getElementById("cart");
 const totalCarrito = document.getElementById("cart-total");
 const contador = document.getElementById("contador");
+let listacoches = [];
 
 const menuBtn = document.querySelector('.menu-btn');
 const sidebar = document.querySelector('.sidebar');
@@ -30,17 +31,19 @@ let menuOpen = false;
 function renderizarCoches() {
     fetch("controller/mostrarcoches.php").then(response => response.json()).then(coches => {
         const mostrarCoches = document.getElementById("products");
+        console.log(coches);
+        listacoches = coches;
         coches.forEach(coche => {
             mostrarCoches.innerHTML += `
              <div class="fade-in">
                 <div class="product-card">
                     <img src="img/cars/${coche.img}" class="anchoImg">
-                    <h2>${coche.marca}</h2>
-                    <h2>${coche.modelo}</h2>
-                    <p>Año ${coche.año}</p>
-                    <p>${coche.kilometros} kilómetros</p>
-                    <p><b>${coche.precio} €</b></p>
-                    <p>${coche.descripcion}</p>
+                    <h2 class="item1">${coche.marca}</h2>
+                    <h2 class="item2">${coche.modelo}</h2>
+                    <p class="item3">Año ${coche.año}</p>
+                    <p class="item4">${coche.kilometros} kilómetros</p>
+                    <p class="item5">Precio: <b>${coche.precio} €</b></p>
+                    <p class="item6">${coche.descripcion}</p>
                     <button class="botonComprar" onclick="addCarrito(${coche.id})">Comprar</button>
                 </div>
             </div>
@@ -63,20 +66,21 @@ function renderizarCoches() {
 //         </div>`
 //     ).join(" ");
 // }
-function addCarrito(productoId){
-   const productoComprado = products.find(producto => producto.id === productoId);
+function addCarrito(cocheId){
+   const productoComprado = listacoches.find(coche => coche.id === cocheId);
     cardProducts.push({...productoComprado});
     updateCarrito();
 }
 function updateCarrito(){
     itemsCarrito.innerHTML = cardProducts.map((item, index) => 
         `<div class="cart-item">
-            <span class="elim">${item.name} - ${item.price.toFixed(2)} €</span>
+            <span class="elim">${item.marca} - ${item.precio} €</span>
             <button onclick="eliminarCarrito(${index})" class="elim">Eliminar</button>
         </div>`).join(" ");
 
-    const total = cardProducts.reduce((sum, item) => sum + item.price, 0);
+    const total = cardProducts.reduce((sum, item) => sum + parseFloat(item.precio), 0);
     totalCarrito.textContent = `Total ${total.toFixed(2)} €`;
+    
     
     if(cardProducts.length === 0){
         contador.textContent = "";

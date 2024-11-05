@@ -153,14 +153,38 @@ body {
     flex-direction: column;
     justify-content: space-around;
 }
+.anchoImg { grid-area: header;}
+.item1 { grid-area: marca; }
+.item2 { grid-area: modelo; }
+.item3 { grid-area: kilometros; }
+.item4 { grid-area: año; }
+.item5 { grid-area: precio; }
+.item6 { grid-area: descripcion;}
+.product-card button { grid-area: b;}
 .product-card {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'marca modelo kilometros año precio precio'
+      'descripcion descripcion descripcion descripcion descripcion descripcion'
+      'b b b b b b';
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin: 10px;
     padding: 15px;
     width: 100%;
-}
+    text-align: center;
+  }
+
+/* .product-card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 100%;
+} */
 .carrito {
     display: block;
     position: fixed;
@@ -175,9 +199,7 @@ body {
 .product-card h3 {
     margin: 10px 0;
 }
-.product-card p {
-    margin: 5px 0;
-}
+
 .product-card select {
     margin: 10px 0;
     width: 100%;
