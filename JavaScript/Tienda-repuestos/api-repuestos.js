@@ -3,6 +3,7 @@ let productos = null;
 let numeroElementos = 10;
 
 export function getTotalPaginas() {
+    console.log(productos)
     if(productos.length % numeroElementos === 0){
         return productos.length/numeroElementos
     }else{
@@ -15,7 +16,6 @@ export function numeroElementosPorPag() {
 
 export async function cargarProductos() {
     try {
-        const URLrepuestos = "./piezas.json"
         const repuestosAPI = await fetch(URLrepuestos)
 
         if(!repuestosAPI.ok){

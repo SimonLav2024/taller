@@ -29,20 +29,16 @@ body {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    will-change: filter;
+    transition: filter 300ms;
+}
+.content:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
 .sin-efecto{
     text-decoration: none;
     color: #000;
     text-shadow: 2px 2px 4px rgba(124, 0, 0, 0.592);
-}
-.content:hover {
-    animation-name: scale;
-    animation-duration: .04s;
-    animation-fill-mode: forwards;
-}
-@keyframes scale {
-    from {transform: scale(1);}
-    to {transform: scale(1.1);}
 }
 
 /* fin */
