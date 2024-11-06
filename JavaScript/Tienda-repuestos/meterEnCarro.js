@@ -1,5 +1,5 @@
-import { cargarProductos, getProductos } from "./api-repuestos.js";
-import { displayRepuestos } from "./renderRepuestos.js";
+// import { getProductos } from "./api-repuestos.js";
+import { displayRepuestos, getProductos } from "./renderRepuestos.js";
 
 const itemsCarrito = document.getElementById("cart-items");
 const totalCarrito = document.getElementById("cart-total");
@@ -9,17 +9,17 @@ let cardProducts = [];
 export function addCarrito(event){
     const piezas = getProductos();
     const piezaId = event.target.getAttribute("data-set")
-    const productoComprado = piezas.find(pieza => pieza.id === piezaId);
+    const productoComprado = piezas.find(pieza => pieza.id == piezaId);
      cardProducts.push({...productoComprado});
      updateCarrito();
 }
 export function updateCarrito(){
     itemsCarrito.innerHTML = cardProducts.map((pieza) => 
          `<div class="cart-item">
-             <span class="elim">${pieza.nombre} - ${pieza.precio.toFixed(2)} €</span>
+             <span class="elim">${pieza.nombre} - ${pieza.precio} €</span>
              <button data-id="${pieza.id}" class="elim">Eliminar</button>
          </div>`).join(" ");
-    const total = cardProducts.reduce((sum, pieza) => sum + pieza.precio, 0);
+    const total = cardProducts.reduce((sum, pieza) => sum + parseFloat(pieza.precio), 0);
     totalCarrito.textContent = `Total ${total.toFixed(2)} €`;
     const botonesEliminar = document.querySelectorAll(".elim");
     botonesEliminar.forEach(boton => {

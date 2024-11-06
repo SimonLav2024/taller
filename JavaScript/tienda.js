@@ -31,7 +31,6 @@ let menuOpen = false;
 function renderizarCoches() {
     fetch("controller/mostrarcoches.php").then(response => response.json()).then(coches => {
         const mostrarCoches = document.getElementById("products");
-        console.log(coches);
         listacoches = coches;
         coches.forEach(coche => {
             mostrarCoches.innerHTML += `

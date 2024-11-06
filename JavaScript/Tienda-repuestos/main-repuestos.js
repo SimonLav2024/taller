@@ -3,11 +3,11 @@ import { showLoading, hideLoading } from "./loading.js";
 // Fin
 
 // La API de repuestos que se va a consultar, las paginas y el numero de elementos por pagina
-import { cargarProductos, getTotalPaginas, numeroElementosPorPag } from "./api-repuestos.js";
+// import { getTotalPaginas, numeroElementosPorPag } from "./api-repuestos.js";
 // Fin
 
 // Lo que se va a mostrar en la pantalla de la pagina web
-import { displayRepuestos } from "./renderRepuestos.js";
+import { displayRepuestos, getTotalPaginas, numeroElementosPorPag } from "./renderRepuestos.js";
 // Fin
 
 
@@ -20,21 +20,23 @@ botonSiguente.addEventListener("click", () => {
     if(pagina < getTotalPaginas()){
         pagina++
         const inicio = (pagina * numeroElementosPorPag()) - numeroElementosPorPag()
-        const fin = pagina * numeroElementosPorPag() - 1
+        const fin = pagina * numeroElementosPorPag()
         displayRepuestos(inicio, fin)
         botonAnterior.style.display = "block"
     }
     if(pagina === getTotalPaginas()){
         botonSiguente.style.display = "none"
     }
+    
 })
 
 botonAnterior.addEventListener("click", () => {
     if(pagina > 1) {
         pagina--
         const inicio = (pagina * numeroElementosPorPag()) - numeroElementosPorPag()
-        const fin = pagina * numeroElementosPorPag() - 1
+        const fin = pagina * numeroElementosPorPag()
         displayRepuestos(inicio, fin)
+        console.log(inicio, fin);
     }
     if(pagina === 1){
         botonAnterior.style.display = "none"
@@ -47,7 +49,6 @@ let inicio = 0;
 
 async function mostrarProductos(){
     showLoading();
-    await cargarProductos();
     displayRepuestos(inicio, numeroElementosPorPag())
     hideLoading();
 }

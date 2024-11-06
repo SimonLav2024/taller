@@ -1,7 +1,4 @@
 
-// Importar la API que se va a ver en el navegador
-// import { getProductos } from "./api-repuestos.js";
-// Fin
 
 import { addCarrito, updateCarrito } from "./meterEnCarro.js";
 
@@ -12,6 +9,7 @@ export function displayRepuestos(inicio, fin) {
     fetch("controller/mostrarpiezas.php").then(response => response.json()).then(piezas => {
         const mostrarPiezas = document.getElementById("products");
         listapiezas = piezas;
+        mostrarPiezas.innerHTML = "";
         piezas.slice(inicio, fin).forEach(pieza => {
             mostrarPiezas.innerHTML += `
                 <div class="repuesto">
@@ -31,7 +29,23 @@ export function displayRepuestos(inicio, fin) {
     })
 }
 
+let productos = null;
+let numeroElementos = 10;
 
+export function getTotalPaginas() {
+    if(listapiezas.length % numeroElementos === 0){
+        return listapiezas.length/numeroElementos
+    }else{
+        return listapiezas.length/numeroElementos + 1
+    }
+}
+export function numeroElementosPorPag() {
+    return numeroElementos
+}
+
+export function getProductos(){
+    return listapiezas;
+}
 
 
 // export function displayRepuestos(inicio, fin){
