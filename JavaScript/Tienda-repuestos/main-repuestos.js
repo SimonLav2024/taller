@@ -2,10 +2,6 @@
 import { showLoading, hideLoading } from "./loading.js";
 // Fin
 
-// La API de repuestos que se va a consultar, las paginas y el numero de elementos por pagina
-// import { getTotalPaginas, numeroElementosPorPag } from "./api-repuestos.js";
-// Fin
-
 // Lo que se va a mostrar en la pantalla de la pagina web
 import { displayRepuestos, getTotalPaginas, numeroElementosPorPag } from "./renderRepuestos.js";
 // Fin

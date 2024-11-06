@@ -1,5 +1,5 @@
-// import { getProductos } from "./api-repuestos.js";
-import { displayRepuestos, getProductos } from "./renderRepuestos.js";
+
+import { getProductos } from "./renderRepuestos.js";
 
 const itemsCarrito = document.getElementById("cart-items");
 const totalCarrito = document.getElementById("cart-total");
