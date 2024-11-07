@@ -180,7 +180,7 @@ body {
         justify-content: space-around;
     }
 }
-.repuesto {
+/* .repuesto {
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -189,6 +189,29 @@ body {
     width: 20%;
     display: flex;
     flex-direction: column;
+} */
+.item0 { grid-area: header;}
+.item1 { grid-area: nombre; }
+.item2 { grid-area: precio; }
+.item3 { grid-area: marca; }
+.item4 { grid-area: compatible; }
+.add { grid-area: boton; }
+.repuesto {
+    display: grid;
+    grid-template-areas:
+        'header header header header'
+        'nombre nombre nombre nombre'
+        'marca marca marca marca'
+        'precio precio precio precio'
+        'compatible compatible compatible compatible'
+        'boton boton boton boton';
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 5px;
+    padding: 15px;
+    width: 20%;
+    text-align: center;
 }
 @media (max-width: 600px) {
     .repuesto {

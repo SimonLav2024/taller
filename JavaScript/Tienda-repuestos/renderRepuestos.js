@@ -13,7 +13,7 @@ export function displayRepuestos(inicio, fin) {
         piezas.slice(inicio, fin).forEach(pieza => {
             mostrarPiezas.innerHTML += `
                 <div class="repuesto">
-                    <img src="img/Repuestos/${pieza.img}">
+                    <img class="item0" src="img/Repuestos/${pieza.img}">
                     <h2 class="item1">${pieza.nombre}</h2>
                     <h2 class="item2">Precio: ${pieza.precio} €</h2>
                     <p class="item3">${pieza.marca_pieza}</p>
