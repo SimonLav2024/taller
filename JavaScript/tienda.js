@@ -42,13 +42,24 @@ function renderizarCoches() {
                     <p class="item3">Año ${coche.año}</p>
                     <p class="item4">${coche.kilometros} kilómetros</p>
                     <p class="item5">Precio: <b>${coche.precio} €</b></p>
-                    <p class="item6">${coche.descripcion}</p>
+                    <a onclick="verDetalles(this)">Ver Descripción</a>
+                    <p id="item6">${coche.descripcion}</p>
                     <button class="botonComprar" onclick="addCarrito(${coche.id})">Comprar</button>
                 </div>
             </div>
             `
         })
     })
+}
+function verDetalles(link) {
+    var descriptionElement = link.nextElementSibling;
+    if (descriptionElement.style.display === 'none') {
+      descriptionElement.style.display = 'block';
+      link.textContent = 'Ocultar Descripción';
+    } else {
+      descriptionElement.style.display = 'none';
+      link.textContent = 'Ver Descripción';
+    }
 }
 
 // function renderizarProducts(){
