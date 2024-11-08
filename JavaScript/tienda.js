@@ -42,7 +42,7 @@ function renderizarCoches() {
                     <p class="item3">Año ${coche.año}</p>
                     <p class="item4">${coche.kilometros} kilómetros</p>
                     <p class="item5">Precio: <b>${coche.precio} €</b></p>
-                    <a onclick="verDetalles(this)">Ver Descripción</a>
+                    <button class="verDetalles" onclick="verDetalles(this)">Ver Descripción</button>
                     <p id="item6">${coche.descripcion}</p>
                     <button class="botonComprar" onclick="addCarrito(${coche.id})">Comprar</button>
                 </div>
@@ -53,12 +53,12 @@ function renderizarCoches() {
 }
 function verDetalles(link) {
     var descriptionElement = link.nextElementSibling;
-    if (descriptionElement.style.display === 'none') {
-      descriptionElement.style.display = 'block';
-      link.textContent = 'Ocultar Descripción';
-    } else {
+    if (descriptionElement.style.display == 'block') {
       descriptionElement.style.display = 'none';
       link.textContent = 'Ver Descripción';
+    } else {
+      descriptionElement.style.display = 'block';
+      link.textContent = 'Ocultar Descripción';
     }
 }
 

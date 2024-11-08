@@ -1,19 +1,34 @@
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("../img/Great_Wave_off_Kanagawa.jpg");
-    background-size: 3000px; 
-    background-position: center;
-    background-repeat: repeat;
+    background-color: rgb(59, 59, 59);
 }
 @media (min-width: 3000px) {
     body {
         background-size: cover;
     }
+}
+.vacio {
+    background-color: #929292;
+    padding: 25px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 750;
+    text-align: left;
+    color: white;
+}
+.vacioA {
+    position: relative;
+    top: 10px;
+    left: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .menu-btn {
@@ -106,7 +121,7 @@ body {
 }
 .portada {
     position: absolute;
-    top: 100px;
+    top: 95px;
     left: 0;
     width: 100vw;
     height: 500px;
@@ -115,7 +130,7 @@ body {
 }
 .overlay {
     position: absolute;
-    top: 100px;
+    top: 95px;
     left: 0;
     width: 100%;
     height: 500px;
@@ -131,7 +146,7 @@ body {
     align-items: center;
 }
 .container h1 {
-    margin: 150px 0 10px 0;
+    margin: 150px 0 20px 0;
     padding: 20px;
     width: 100%;
     color: white;
@@ -209,20 +224,37 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, auto);
 }
+
 .product-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(241, 241, 241);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin: 10px;
     padding: 15px;
     width: 100%;
     text-align: center;
-  }
+}
+.product-card:hover {
+    animation-name: scale;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+@keyframes scale {
+    from {transform: scale(1);}
+    to {transform: scale(1.03);}
+}
 #item6 {
     display: none;
+}
+.verDetalles {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.verDetalles:hover {
+    background-color: #910f06;
 }
 .carrito {
     display: block;
@@ -256,6 +288,7 @@ body {
     cursor: pointer;
     border-radius: 4px;
     width: 100%;
+    transition: background-color 0.3s ease;
 }
 .botonComprar:hover {
     background-color: #910f06;
@@ -373,7 +406,7 @@ body {
     }
 }
 .btnUp {
-    bottom: 80px;
+    bottom: 65px;
     left: 245px;
     position: fixed;
 }
@@ -470,6 +503,7 @@ body {
     color: white;
     background-color: rgba(36, 36, 36, 0.781);
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 .boton-cita:hover {
     background-color: rgb(168, 168, 168);
