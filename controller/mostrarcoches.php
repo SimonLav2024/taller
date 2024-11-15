@@ -17,4 +17,3 @@ $metodo = Utilidades::getParameterValue($parametros, "metodo");
         $respuesta = $coche->getAll();
         print json_encode($respuesta);
     }
-
