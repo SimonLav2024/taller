@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])){
     if($resultado['success'] == "success"){
         $_SESSION['user_id'] = $resultado['id'];
     }
-    redirigirConMensaje("../index.php", $resultado['success'], $resultado['message']);
+    redirigirConMensaje("../index_log.php", $resultado['success'], $resultado['message']);
 }
 
 // recuperacion de contraseña
@@ -43,5 +43,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["recuperar"])){
     $email = $_POST['email'];
 
     $resultado = $usuariobd->recuperarPassword($email);
-    redirigirConMensaje("../index.php", $resultado['success'], $resultado['message']);
+    redirigirConMensaje("../index_log.php", $resultado['success'], $resultado['message']);
 }

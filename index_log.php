@@ -20,7 +20,7 @@ if(isset($_SESSION['success']) && isset($_SESSION['message'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles_log.css">
+    <link rel="stylesheet" href="css/styles_log.css?v=2.0.0">
 
     <title>Sistema de Login</title>
 </head>
@@ -60,6 +60,6 @@ if(isset($_SESSION['success']) && isset($_SESSION['message'])){
         </div>
     </div>
 
-    <script src="js_log/code.js"></script>
+    <script src="js_log/code.js?v=2.0.0"></script>
 </body>
 </html>

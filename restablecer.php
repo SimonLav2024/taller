@@ -22,7 +22,7 @@ if(isset($_GET['token'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles_log.css">
+    <link rel="stylesheet" href="css/styles_log.css?v=2.0.0">
     <title>Restablecer Contraseña</title>
 </head>
 <body>
@@ -31,7 +31,7 @@ if(isset($_GET['token'])){
         <?php if (!empty($mensaje)): ?>
             <p class="mensaje"><?php echo $mensaje; ?></p>
             <?php if ($resultado['success']): ?>
-                <a href="index.php" class="boton">Ir a Iniciar Sesión</a>
+                <a href="index_log.php" class="boton">Ir a Iniciar Sesión</a>
             <?php endif; ?>
         <?php else: ?>
             <form method="post">
@@ -42,6 +42,6 @@ if(isset($_GET['token'])){
         <?php endif; ?>
     </div>
     
-    <script src="js_log/restablecer.js"></script>
+    <script src="js_log/restablecer.js?v=2.0.0"></script>
 </body>
 </html>

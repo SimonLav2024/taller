@@ -103,6 +103,9 @@ body {
         text-align: left;
     }
 }
+#log {
+    visibility: hidden;
+}
 
 /* fin */
 

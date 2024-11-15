@@ -137,3 +137,29 @@ return texto;
 });
 
 
+let combinacion = [];
+const combinacionCorrecta = ["s","i","m","o","n"];
+const combinacionCierre = ["c","l","o","s","e"];
+
+document.addEventListener('keydown', function(event) {
+    combinacion.push(event.key);
+    if (combinacion.length > combinacionCorrecta.length) {
+        combinacion.shift();
+    }
+    if (JSON.stringify(combinacion) === JSON.stringify(combinacionCorrecta)) {
+        mostrar();
+    }
+    if (JSON.stringify(combinacion) === JSON.stringify(combinacionCierre)) {
+        ocultar();
+    }
+});
+
+function mostrar() {
+    const admin = document.getElementById("log");
+    admin.style.visibility = "visible";
+}
+function ocultar() {
+    const admin = document.getElementById("log");
+    admin.style.visibility = "hidden";
+}
+

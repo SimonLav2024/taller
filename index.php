@@ -18,7 +18,7 @@
             <a href="#form-cont">Contacto</a>
             <a target="_blank" href="tienda.html">Tienda</a>
             <a target="_blank" href="repuestos.html">Repuestos</a>
-            <a target="_blank" href="index_log.php">Log Admin</a>
+            <a id="log" target="_blank" href="index_log.php">Log Admin</a>
             <a href="#" id="boton" class="icon">&#9776;</a>
         </nav>
     </div>
