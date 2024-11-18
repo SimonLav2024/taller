@@ -5,6 +5,7 @@ unset($_SESSION['user']);
 if(isset($_SESSION['success']) && isset($_SESSION['message'])){
     $mensaje = $_SESSION['message'];
     $success = $_SESSION['success'];
+    
 
     // limpia el mensaje de la sesion para que no se muestre de nuevo
     unset($_SESSION['message']);

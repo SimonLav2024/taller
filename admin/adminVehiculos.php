@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/styles_admin.css">
 </head>
 <body>
+    <h1>Administración de Stock de Vehículos</h1>
     <h2>Añadir Vehículo</h2>
     <!-- enctype="multipart/form-data" eso hay que ponerlo en form para que se puedan subir imagenes a la base de datos -->
     <form id="createForm">

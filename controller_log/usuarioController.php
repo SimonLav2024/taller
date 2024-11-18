@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])){
     if($resultado['success'] == "success"){
         $_SESSION['user_id'] = $resultado['id'];
     }
-    redirigirConMensaje("../index_log.php", $resultado['success'], $resultado['message']);
+    redirigirConMensaje("http://localhost/Proyecto-Definitivo/index_admin.php", $resultado['success'], $resultado['message']);
 }
 
 // recuperacion de contraseña

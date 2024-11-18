@@ -5,7 +5,7 @@ require_once "utilidades.php";
 
 header("Content-Type: application/json");
 
-$piezas = new Piezas();
+$pieza = new Piezas();
 
 $method = $_SERVER['REQUEST_METHOD'];
 

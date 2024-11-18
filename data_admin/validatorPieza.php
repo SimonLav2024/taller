@@ -26,19 +26,15 @@ class ValidatorPieza {
         }
 
         if(!isset($datos["marca_pieza"]) || empty(trim($datos["marca_pieza"]))) {
-            $errors["marca_pieza"] = "La marca de la pieza es obligatoria.";
-        }elseif(!filter_var($datos["marca_pieza"], FILTER_VALIDATE_INT)) {
-            $errors["marca_pieza"] = "El formato de la marca no es válido.";
-        }elseif(strlen($datos["marca_pieza"]) == 0) {
-            $errors["marca_pieza"] = "La marca de la pieza ha de ser definido.";
+            $errors["marca_pieza"] = "La marca de la pieza es necesario.";
+        }elseif(strlen($datos["marca_pieza"]) < 0 || strlen($datos["marca_pieza"]) > 300){
+            $errors["marca_pieza"] = "La marca ha de tener entre 0 y 300 caractéres.";
         }
 
         if(!isset($datos["coche_compatible"]) || empty(trim($datos["coche_compatible"]))) {
-            $errors["coche_compatible"] = "La compatibilidad de la pieza es obligatoria.";
-        }elseif(!filter_var($datos["coche_compatible"], FILTER_VALIDATE_INT)) {
-            $errors["coche_compatible"] = "El formato de la compatibilidad no es válido.";
-        }elseif(strlen($datos["coche_compatible"]) == 0) {
-            $errors["coche_compatible"] = "La compatibilidad de la pieza ha de ser definido.";
+            $errors["coche_compatible"] = "Los coches compatibles con la pieza son necesarios.";
+        }elseif(strlen($datos["coche_compatible"]) < 0 || strlen($datos["coche_compatible"]) > 300){
+            $errors["coche_compatible"] = "Los coches compatibles con la pieza han de tener entre 0 y 300 caractéres.";
         }
 
         return $errors;

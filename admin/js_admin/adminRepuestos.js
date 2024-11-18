@@ -2,11 +2,11 @@ const API_URL_REPUESTOS = 'http://localhost/Proyecto-Definitivo/controller_admin
 const errorElement = document.getElementById('createError');
 let listaPiezas = [];
 
-function limpiarHTML(str){
-    return str.replace(/[^\w. @-]/gi, function(e) {
-        return '&#' + e.charCodeAt(0) + ';';
-    });
-}
+// function str){
+//     return str.replace(/[^\w. @-]/gi, function(e) {
+//         return '&#' + e.charCodeAt(0) + ';';
+//     });
+// }
 
 function esEntero(str) {
     return /^\d+$/.test(str);
@@ -35,12 +35,13 @@ function getRepuestos(){
         .then(repuestos => {
             const tableBody = document.querySelector('#piezasTable tbody');
             tableBody.innerHTML = '';
+            console.log(repuestos)
+            
             repuestos.forEach(repuesto => {
-                const sanitizedNombre = limpiarHTML(repuesto.nombre);
-                const sanitizedPrecio = limpiarHTML(repuesto.precio);
-                const sanitizedMarca_pieza = limpiarHTML(repuesto.marca_pieza);
-                const sanitizedCoche_compatible = limpiarHTML(repuesto.coche_compatible);
-                let optionsHTML = '';
+                const sanitizedNombre = repuesto.nombre;
+                const sanitizedPrecio = repuesto.precio;
+                const sanitizedMarca_pieza = repuesto.marca_pieza;
+                const sanitizedCoche_compatible = repuesto.coche_compatible;
                 
                 tableBody.innerHTML += `
                     <tr data-id="${repuesto.id}">
@@ -56,17 +57,17 @@ function getRepuestos(){
                             <input class="edicion" type="number" value="${sanitizedPrecio}">
                         </td>
                         <td>
-                            span class="listado">${sanitizedMarca_pieza}</span>
-                            <input class="edicion" type="number" value="${sanitizedMarca_pieza}">
+                            <span class="listado">${sanitizedMarca_pieza}</span>
+                            <input class="edicion" type="text" value="${sanitizedMarca_pieza}">
                         </td>
                         <td>
                             <span class="listado">${sanitizedCoche_compatible}</span>
-                            <input class="edicion" type="number" value="${sanitizedCoche_compatible}">
+                            <input class="edicion" type="text" value="${sanitizedCoche_compatible}">
                         </td>
                         <td class="td-btn">
                             <button class="listado" onclick="editMode(${repuesto.id})">Editar</button>
-                            <button class="listado" onclick="deletePelicula(${repuesto.id})">Eliminar</button>
-                            <button class="edicion" onclick="updatePelicula(${repuesto.id})">Guardar</button>
+                            <button class="listado" onclick="deletePieza(${repuesto.id})">Eliminar</button>
+                            <button class="edicion" onclick="updatePieza(${repuesto.id})">Guardar</button>
                             <button class="edicion" onclick="cancelEdit(${repuesto.id})">Cancelar</button>
                         </td>
                     </tr>
@@ -137,7 +138,7 @@ function updatePieza(id){
         headers: {
             'Content-Type' : 'application/json',
         },
-        body: JSON.stringify({titulo: newNombre, precio: newPrecio, marca_pieza: newMarca, coche_compatible: newCompatibilidad})
+        body: JSON.stringify({nombre: newNombre, precio: newPrecio, marca_pieza: newMarca, coche_compatible: newCompatibilidad})
    }).then(response => response.json())
      .then(result => {
         console.log('Pieza actualizada', result);
@@ -190,10 +191,11 @@ function deletePieza(id){
        .then(response => response.json())
        .then(result => {
             console.log('Pieza eliminada: ', result);
-            getPeliculas();
+            getRepuestos();
        })
        .catch(error => console.error('Error: ', error));
     }
 }
 
+getRepuestos()
 document.getElementById('createForm').addEventListener('submit', createPieza);

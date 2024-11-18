@@ -27,6 +27,7 @@
                 <th>Precio</th>
                 <th>Marca</th>
                 <th>Coches compatibles</th>
+                <th></th>
             </tr>
         </thead>
         <tbody></tbody>

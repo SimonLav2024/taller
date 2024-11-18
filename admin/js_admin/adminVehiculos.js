@@ -92,8 +92,8 @@ function getVehiculos(){
                         </td>
                         <td class="td-btn">
                             <button class="listado" onclick="editMode(${vehiculo.id})">Editar</button>
-                            <button class="listado" onclick="deleteDirector(${vehiculo.id})">Eliminar</button>
-                            <button class="edicion" onclick="updateDirector(${vehiculo.id})">Guardar</button>
+                            <button class="listado" onclick="deleteVehiculo(${vehiculo.id})">Eliminar</button>
+                            <button class="edicion" onclick="updateVehiculo(${vehiculo.id})">Guardar</button>
                             <button class="edicion" onclick="cancelEdit(${vehiculo.id})">Cancelar</button>
                         </td>
                     </tr>
@@ -130,7 +130,21 @@ function createVehiculo(event){
         },
         body: JSON.stringify({marca, modelo, año, kilometros, precio, descripcion})
     })
-    .then(response => response.json())
+    .then(response => {
+        return response.text().then(text => {
+            console.log("Respuesta del servidor:", text);
+            // Si la respuesta no es OK, lanzamos un error
+            if (!response.ok) {
+                throw new Error(`Error HTTP ${response.status}: ${text}`);
+            }
+            // Si llegamos aquí, intentamos parsear como JSON
+            try {
+                return JSON.parse(text);
+            } catch (e) {
+                throw new Error(`Error al parsear JSON: ${text}`);
+            }
+        });
+    })
     .then(result => {
         console.log('Vehículo añadido: ', result);
         //if(!esEntero(result['id'])){
@@ -144,7 +158,8 @@ function createVehiculo(event){
         event.target.reset();
     })
     .catch(error => {
-        console.log('Error: ', JSON.stringify(error));
+        console.error("Error completo:", error);
+          console.error("Mensaje:", error.message);
     })
 }
 

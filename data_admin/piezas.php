@@ -36,17 +36,8 @@ class Piezas {
         $marca_piezaSaneado = $dataSaneados["marca_pieza"];
         $coche_compatibleSaneado = $dataSaneados["coche_compatible"];
 
-        $result = $this->db->query("SELECT id FROM piezas WHERE nombre LIKE ?", [$nombreSaneado]);
-        if ($result->num_rows === $nombreSaneado) {
-            return "El nombre de la pieza no puede ser ese, cambia algo para solucionarlo.";
-        }
-        $result = $this->db->query("SELECT id FROM pieza WHERE id = ?", [$marca_piezaSaneado]);
-        if ($result->num_rows === 0 ) {
-            return "Algo pasa con la compatibilidad de la pieza.";
-        }
-
         //lanzamos la consulta
-        $this->db->query("INSERT INTO pieza (nombre, precio, marca_pieza, coche_compatible) VALUES(?, ?, ?, ?)", [$nombreSaneado, $precioSaneado, $marca_piezaSaneado, $coche_compatibleSaneado]);
+        $this->db->query("INSERT INTO piezas (nombre, precio, marca_pieza, coche_compatible) VALUES(?, ?, ?, ?)", [$nombreSaneado, $precioSaneado, $marca_piezaSaneado, $coche_compatibleSaneado]);
 
         return $this->db->query("SELECT LAST_INSERT_ID() as id")->fetch_assoc()['id'];
     }
@@ -66,10 +57,6 @@ class Piezas {
         $precioSaneado = $dataSaneados['precio'];
         $marca_piezaSaneado = $dataSaneados["marca_pieza"];
         $coche_compatibleSaneado = $dataSaneados["coche_compatible"];
-        $result = $this->db->query("SELECT id FROM pieza WHERE id = ?", [$marca_piezaSaneado]);
-        if ($result->num_rows === 0 ) {
-            return "Algo pasa con la compatibilidad de la pieza.";
-        }
 
         $this->db->query("UPDATE piezas SET nombre = ?, precio = ?, marca_pieza = ? coche_compatible = ? WHERE id = ?", [$nombreSaneado, $precioSaneado, $marca_piezaSaneado, $coche_compatibleSaneado, $idSaneado]);
         return $this->db->query("SELECT ROW_COUNT() AS affected")->fetch_assoc()["affected"];

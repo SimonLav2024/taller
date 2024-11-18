@@ -40,7 +40,7 @@ class Coches{
         $descripcionSaneado = $dataSaneados['descripcion'];
 
         //lanzamos la consulta
-        $this->db->query("INSERT INTO director (marca, modelo, año, kilometros, precio, descripcion) VALUES(?, ?, ?, ?, ?, ?)", [$marcaSaneado, $modeloSaneado, $añoSaneado, $kilometrosSaneado, $precioSaneado, $descripcionSaneado]);
+        $this->db->query("INSERT INTO coches (marca, modelo, año, kilometros, precio, descripcion) VALUES(?, ?, ?, ?, ?, ?)", [$marcaSaneado, $modeloSaneado, $añoSaneado, $kilometrosSaneado, $precioSaneado, $descripcionSaneado]);
 
         return $this->db->query("SELECT LAST_INSERT_ID() as id")->fetch_assoc()['id'];
     }
