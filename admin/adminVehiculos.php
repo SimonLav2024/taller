@@ -31,6 +31,7 @@
                 <th>Kilómetros</th>
                 <th>Precio</th>
                 <th>Descripción</th>
+                <th></th>
             </tr>
         </thead>
         <tbody></tbody>

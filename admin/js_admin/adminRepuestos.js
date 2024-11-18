@@ -1,5 +1,4 @@
-const API_URL_PELICULAS = 'http://localhost/Proyecto-Definitivo/controller_admin/peliculas.php';
-const API_URL_DIRECTORES = "http://localhost/Proyecto-Definitivo/controller_admin/directores.php";
+const API_URL_REPUESTOS = 'http://localhost/Proyecto-Definitivo/controller_admin/piezas.php';
 const errorElement = document.getElementById('createError');
 let listaPiezas = [];
 
@@ -13,104 +12,78 @@ function esEntero(str) {
     return /^\d+$/.test(str);
 }
 
-function validaciones(titulo, precio, id_director){
+function validaciones(nombre, precio, marca_pieza, coche_compatible){
     let errores = [];
-    if(titulo.length <= 2 || titulo.length >= 50){
-        errores.push('El titulo debe tener entre 2 y 50 caracteres.');
+    if(nombre.length <= 2 || nombre.length >= 100){
+        errores.push('El nombre debe tener entre 2 y 100 caractéres.');
     }
     if(!parseFloat(precio) || precio < 0){
         errores.push('El precio tiene que ser un número válido positivo');
     }
-    if(!parseInt(id_director)){
-        errores.push('El director elegido no es válido');
+    if(marca_pieza.length <= 2 || marca_pieza.length >= 100){
+        errores.push('La marca de la pieza debe tener entre 2 y 100 caractéres');
+    }
+    if(coche_compatible.length <= 2 || coche_compatible.length >= 1000){
+        errores.push('Los coche compatibles deben tener entre 2 y 1000 caractéres');
     }
     return errores;
 }
 
-function mostrarSelectDirector(listaDirectores, selectDirector){
-    selectDirector.innerHTML = '';
-    listaDirectores.forEach(director => {
-        const sanitizedNombre = limpiarHTML(director.nombre);
-        const sanitizedApellido = limpiarHTML(director.apellido);
-        selectDirector.innerHTML += `
-            <option value="${director.id}">${sanitizedNombre} ${sanitizedApellido}</option>
-        `
-    });
-}
-
-function getDirectores(){
-    fetch(API_URL_DIRECTORES)
+function getRepuestos(){
+    fetch(API_URL_REPUESTOS)
         .then(response=> response.json())
-        .then(directores => {
-            listaDirectores = directores;
-            getPeliculas();
-            const selectDirector = document.querySelector('#seleccionaDirector');
-            mostrarSelectDirector(listaDirectores, selectDirector);
-        })
-        .catch(error => console.log('Error:', error));
-}
-
-function getPeliculas(){
-    fetch(API_URL_PELICULAS)
-        .then(response=> response.json())
-        .then(peliculas => {
-            const tableBody = document.querySelector('#peliculasTable tbody');
+        .then(repuestos => {
+            const tableBody = document.querySelector('#piezasTable tbody');
             tableBody.innerHTML = '';
-            peliculas.forEach(pelicula => {
-                const sanitizedTitulo = limpiarHTML(pelicula.titulo);
-                const sanitizedPrecio = limpiarHTML(pelicula.precio);
-                const directorSeleccionado = listaDirectores.find(director => director.id === pelicula.id_director);
+            repuestos.forEach(repuesto => {
+                const sanitizedNombre = limpiarHTML(repuesto.nombre);
+                const sanitizedPrecio = limpiarHTML(repuesto.precio);
+                const sanitizedMarca_pieza = limpiarHTML(repuesto.marca_pieza);
+                const sanitizedCoche_compatible = limpiarHTML(repuesto.coche_compatible);
                 let optionsHTML = '';
-                listaDirectores.forEach(director => {
-                    const sanitizedNombre = limpiarHTML(director.nombre);
-                    const sanitizedApellido = limpiarHTML(director.apellido);
-                    optionsHTML += `
-                        <option 
-                            value="${director.id}" 
-                            ${(director.id === directorSeleccionado.id)? 'selected' : ''}>
-                            ${sanitizedNombre} ${sanitizedApellido}
-                        </option>
-                    `
-                })
                 
                 tableBody.innerHTML += `
-                    <tr data-id="${pelicula.id}">
+                    <tr data-id="${repuesto.id}">
                         <td>
-                            ${pelicula.id}
+                            ${repuesto.id}
                         </td>
                         <td>
-                            <span class="listado">${sanitizedTitulo}</span>
-                            <input class="edicion" type="text" value="${sanitizedTitulo}">
+                            <span class="listado">${sanitizedNombre}</span>
+                            <input class="edicion" type="text" value="${sanitizedNombre}">
                         </td>
                         <td>
                             <span class="listado">${sanitizedPrecio}</span>
                             <input class="edicion" type="number" value="${sanitizedPrecio}">
                         </td>
                         <td>
-                            <span class="listado">${directorSeleccionado.nombre} ${directorSeleccionado.apellido}</span>
-                            <select class="edicion">${optionsHTML}</select>
+                            span class="listado">${sanitizedMarca_pieza}</span>
+                            <input class="edicion" type="number" value="${sanitizedMarca_pieza}">
+                        </td>
+                        <td>
+                            <span class="listado">${sanitizedCoche_compatible}</span>
+                            <input class="edicion" type="number" value="${sanitizedCoche_compatible}">
                         </td>
                         <td class="td-btn">
-                            <button class="listado" onclick="editMode(${pelicula.id})">Editar</button>
-                            <button class="listado" onclick="deletePelicula(${pelicula.id})">Eliminar</button>
-                            <button class="edicion" onclick="updatePelicula(${pelicula.id})">Guardar</button>
-                            <button class="edicion" onclick="cancelEdit(${pelicula.id})">Cancelar</button>
+                            <button class="listado" onclick="editMode(${repuesto.id})">Editar</button>
+                            <button class="listado" onclick="deletePelicula(${repuesto.id})">Eliminar</button>
+                            <button class="edicion" onclick="updatePelicula(${repuesto.id})">Guardar</button>
+                            <button class="edicion" onclick="cancelEdit(${repuesto.id})">Cancelar</button>
                         </td>
                     </tr>
                 `
             });
-
         })
         .catch(error => console.log('Error:', error));
 }
 
-function createPelicula(event){
+function createPieza(event){
     event.preventDefault();
-    const titulo = document.getElementById('createTitulo').value.trim();
+    const nombre = document.getElementById('createNombre').value.trim();
     const precio = document.getElementById('createPrecio').value.trim();
-    const id_director = document.getElementById('seleccionaDirector').value.trim();
+    const marca_pieza = document.getElementById('createMarca').value.trim();
+    const coche_compatible = document.getElementById('createCompatibilidad').value.trim();
 
-    let erroresValidaciones = validaciones(titulo, precio, id_director);
+    let erroresValidaciones = validaciones(nombre, precio, marca_pieza, coche_compatible);
     if(erroresValidaciones.length > 0){
         mostrarErrores(erroresValidaciones);
         return;
@@ -119,23 +92,23 @@ function createPelicula(event){
     errorElement.innerHTML = '';
 
     //envio al controlador los datos
-    fetch(`${API_URL_PELICULAS}?metodo=crear`, {
+    fetch(`${API_URL_REPUESTOS}?metodo=crear`, {
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json',
         },
-        body: JSON.stringify({titulo, precio, id_director})
+        body: JSON.stringify({nombre, precio, marca_pieza, coche_compatible})
     })
     .then(response => response.json())
     .then(result => {
-        console.log('Película creada: ', result);
+        console.log('Pieza creada: ', result);
         //if(!esEntero(result['id'])){
         if(!parseInt(result['id'])){
             erroresApi = Object.values(result['id']);
             console.log("erroresApi:",  erroresApi);
             mostrarErrores(erroresApi);
         }else{
-            getPeliculas();
+            getRepuestos();
         }
         event.target.reset();
     })
@@ -144,39 +117,40 @@ function createPelicula(event){
     })
 }
 
-function updatePelicula(id){
+function updatePieza(id){
     const row = document.querySelector(`tr[data-id="${id}"]`);
-    const newTitulo = row.querySelector('td:nth-child(2) input').value.trim();
+    const newNombre = row.querySelector('td:nth-child(2) input').value.trim();
     const newPrecio = row.querySelector('td:nth-child(3) input').value.trim();
-    const newIdDirector = row.querySelector('td:nth-child(4) select').value.trim();
+    const newMarca = row.querySelector('td:nth-child(4) input').value.trim();
+    const newCompatibilidad = row.querySelector('td:nth-child(5) input').value.trim();
 
 
-    let erroresValidaciones = validaciones(newTitulo, newPrecio, newIdDirector);
+    let erroresValidaciones = validaciones(newNombre, newPrecio, newMarca, newCompatibilidad);
     if(erroresValidaciones.length > 0){
         mostrarErrores(erroresValidaciones);
         return;
     }
     errorElement.innerHTML = '';
 
-    fetch(`${API_URL_PELICULAS}?id=${id}&metodo=actualizar`, {
+    fetch(`${API_URL_REPUESTOS}?id=${id}&metodo=actualizar`, {
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json',
         },
-        body: JSON.stringify({titulo: newTitulo, precio: newPrecio, id_director: newIdDirector})
+        body: JSON.stringify({titulo: newNombre, precio: newPrecio, marca_pieza: newMarca, coche_compatible: newCompatibilidad})
    }).then(response => response.json())
      .then(result => {
-        console.log('Película actualizada', result);
+        console.log('Pieza actualizada', result);
         if(!esEntero(result['affected'])){
             erroresApi = Object.values(result['affected']);
             mostrarErrores(erroresApi);
         }else{
-            getPeliculas();
+            getRepuestos();
         }
      })
      .catch(error => {
         console.log(error);
-        alert('Error al actualizar la película. Por favor, inténtelo de nuevo.');
+        alert('Error al actualizar la Repuesto. Por favor, inténtelo de nuevo.');
      });
 }
 
@@ -208,20 +182,18 @@ function cancelEdit(id){
         ro.style.display = 'inline-block';
     })
 }
-function deletePelicula(id){
-    if(confirm('¿Estás seguro de que quieres eliminar esta película?')){
-       fetch(`${API_URL_PELICULAS}?id=${id}&metodo=eliminar`, {
+function deletePieza(id){
+    if(confirm('¿Estás seguro de que quieres eliminar esta pieza?')){
+       fetch(`${API_URL_REPUESTOS}?id=${id}&metodo=eliminar`, {
             method: 'POST',
        })
        .then(response => response.json())
        .then(result => {
-            console.log('película eliminada: ', result);
+            console.log('Pieza eliminada: ', result);
             getPeliculas();
        })
        .catch(error => console.error('Error: ', error));
     }
 }
 
-document.getElementById('createForm').addEventListener('submit', createPelicula);
-
-document.addEventListener('DOMContentLoaded', getDirectores);
+document.getElementById('createForm').addEventListener('submit', createPieza);

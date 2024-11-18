@@ -28,13 +28,13 @@ class Validator {
         }
         return $errors;
     }
-    public static function validarPelicula($data){
+    public static function validarPieza($data){
         $errors = [];
 
-        if(!isset($data['titulo']) || empty(trim($data['titulo']))){
-            $errors['titulo'] = "El título es necesario";
-        }elseif(strlen($data['titulo']) < 2 || strlen($data['titulo']) > 50){
-            $errors['titulo'] = "El titulo debe tener entre 2 y 50 caracteres";
+        if(!isset($data['nombre']) || empty(trim($data['nombre']))){
+            $errors['nombre'] = "El nombre es necesario";
+        }elseif(strlen($data['nombre']) < 2 || strlen($data['nombre']) > 50){
+            $errors['nombre'] = "El nombre debe tener entre 2 y 50 caracteres";
         }
 
         if(!isset($data['precio']) || empty(trim($data['precio']))){
@@ -43,8 +43,8 @@ class Validator {
             $errors['precio'] = "El precio debe ser mayor o igual a 0";
         }
 
-        if(!isset($data['id_director']) || empty(trim($data['id_director']))){
-            $errors['id_director'] = "El id del director es necesario";
+        if(!isset($data['marca_pieza']) || empty(trim($data['marca_pieza']))){
+            $errors['marca_pieza'] = "El la marca de la pieza es necesaria";
         }
 
         return $errors;
@@ -61,31 +61,41 @@ class Validator {
         return $fechaAComprobar > $hoy;
     }
 
-    public static function validarDirector($data){
+    public static function validarVehiculo($data){
         $errors = [];
 
-        if(!isset($data['nombre']) || empty(trim($data['nombre']))){
-            $errors['nombre'] = "El nombre es necesario";
-        }elseif(strlen($data['nombre']) < 2 || strlen($data['nombre']) > 50){
-            $errors['titulo'] = "El nombre debe tener entre 2 y 50 caracteres";
+        if(!isset($data['marca']) || empty(trim($data['marca']))){
+            $errors['marca'] = "La marca es necesaria";
+        }elseif(strlen($data['marca']) < 2 || strlen($data['marca']) > 50){
+            $errors['marca'] = "La marca debe tener entre 2 y 50 caracteres";
         }
 
-        if(!isset($data['apellido']) || empty(trim($data['apellido']))){
-            $errors['apellido'] = "El apellido es necesario";
-        }elseif(strlen($data['apellido']) < 2 || strlen($data['apellido']) > 50){
-            $errors['apellido'] = "El apellido debe tener entre 2 y 50 caracteres";
+        if(!isset($data['modelo']) || empty(trim($data['modelo']))){
+            $errors['modelo'] = "El modelo es necesario";
+        }elseif(strlen($data['modelo']) < 2 || strlen($data['modelo']) > 50){
+            $errors['modelo'] = "El modelo debe tener entre 2 y 50 caracteres";
         }
 
-        if(isset($data['fecha_nacimiento']) && $data['fecha_nacimiento'] !== ''){
-            if(!self::esFormatoFecha($data['fecha_nacimiento'])){
-                $errors['fecha_nacimiento'] = "El formato de la fecha no es válido";
-            }elseif(self::esFechaAnteriorHoy($data['fecha_nacimiento'])){
-                $errors['fecha_nacimiento'] = "La fecha de nacimiento no puede ser futura";
-            }
+        if(!isset($data['año']) || empty(trim($data['año']))){
+            $errors['año'] = "El año es necesario";
+        }elseif(strlen($data['año']) < 2 || strlen($data['año']) > 50){
+            $errors['año'] = "El año debe tener entre 2 y 50 caracteres";
         }
 
-        if(isset($data['biografia']) && strlen($data['biografia']) > 65500){
-            $errors['biografia'] = "La biografía es demasiado extensa";
+        if(!isset($data['kilometros']) || empty(trim($data['kilometros']))){
+            $errors['kilometros'] = "Los kilometros son necesario";
+        }elseif(strlen($data['kilometros']) < 2 || strlen($data['kilometros']) > 50){
+            $errors['kilometros'] = "Los kilometros deben ser entre 2 y 50 caracteres";
+        }
+
+        if(!isset($data['precio']) || empty(trim($data['precio']))){
+            $errors['precio'] = "El precio es necesario";
+        }elseif(strlen($data['precio']) < 2 || strlen($data['precio']) > 50){
+            $errors['precio'] = "El precio debe ser entre 2 y 50 caracteres";
+        }
+
+        if(isset($data['descripcion']) && strlen($data['descripcion']) > 65500){
+            $errors['descripcion'] = "La descripcion es demasiado extensa";
         }
 
         return $errors;       

@@ -1,4 +1,4 @@
-const API_URL = "http://localhost/Proyecto-definitivo/controller_admin/directores.php";
+const API_URL = "http://localhost/Proyecto-Definitivo/controller_admin/vehiculos.php";
 const errorElement = document.getElementById('createError');
 /**
  * 
@@ -14,11 +14,11 @@ const errorElement = document.getElementById('createError');
  * devuelve la entidad HTML numérica correspondiente, por ejemplo &#60; para < 
  * Esta función se utiliza para prevenir ataques XSS(Cross-Site-Scripting) 
  */
-function limpiarHTML(str){
-    return str.replace(/[^\w. @-]/gi, function(e) {
-        return '&#' + e.charCodeAt(0) + ';';
-    });
-}
+// function (str){
+//     return str.replace(/[^\w. @-]/gi, function(e) {
+//         return '&#' + e.charCodeAt(0) + ';';
+//     });
+// }
 
 function esEntero(str) {
     return /^\d+$/.test(str);
@@ -55,12 +55,12 @@ function getVehiculos(){
             const tableBody = document.querySelector('#vehiculosTable tbody');
             tableBody.innerHTML = '';
             vehiculos.forEach(vehiculo => {
-                const sanitizedMarca = limpiarHTML(vehiculo.marca);
-                const sanitizedModelo = limpiarHTML(vehiculo.modelo);
-                const sanitizedAño = limpiarHTML(vehiculo.año);
-                const sanitizedKilometros = limpiarHTML(vehiculo.kilometros);
-                const sanitizedPrecio = limpiarHTML(vehiculo.precio);
-                const sanitizedDescripcion = limpiarHTML(vehiculo.descripcion);
+                const sanitizedMarca = vehiculo.marca;
+                const sanitizedModelo = vehiculo.modelo;
+                const sanitizedAño = vehiculo.año;
+                const sanitizedKilometros = vehiculo.kilometros;
+                const sanitizedPrecio = vehiculo.precio;
+                const sanitizedDescripcion = vehiculo.descripcion;
                 tableBody.innerHTML += `
                     <tr data-id="${vehiculo.id}">
                         <td>

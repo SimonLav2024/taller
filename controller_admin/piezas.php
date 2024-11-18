@@ -1,11 +1,11 @@
 <?php
 
-require_once "../data/pelicula.php";
+require_once "../data_admin/piezas.php";
 require_once "utilidades.php";
 
 header("Content-Type: application/json");
 
-$pelicula = new Pelicula();
+$piezas = new Piezas();
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -16,19 +16,19 @@ $metodo = Utilidades::getParameterValue($parametros, "metodo");
 switch ($method) {
     case "GET":
     if($id) {
-        $respuesta = getPeliculaById($pelicula, $id, $id_director);
+        $respuesta = getPiezaById($pieza, $id, $marca_pieza, $coche_compatible);
     }else{
-        $respuesta = getAllPeliculas($pelicula);
+        $respuesta = getAllPiezas($pieza);
     }
     print json_encode($respuesta);
     break;
     case 'POST':
         if($metodo == 'crear'){
-          setPelicula($pelicula);
+          setPieza($pieza);
         }
         if($metodo == 'actualizar'){
           if($id){
-            updatePelicula($pelicula, $id);
+            updatePieza($pieza, $id);
           }else{
             http_response_code(400);
             echo json_encode(['error' => 'ID no proporcionado']);
@@ -36,7 +36,7 @@ switch ($method) {
         }
         if($metodo == 'eliminar'){
           if($id){
-            deletePelicula($pelicula, $id);
+            deletePieza($pieza, $id);
           }else{
             http_response_code(400);
             echo json_encode(['error' => 'ID no proporcionado']);
@@ -48,34 +48,34 @@ default:
     print json_encode(["error"=> "Metodo no permitodo"]);
 }
 
-function getAllPeliculas($pelicula) {
-    return $pelicula->getAll();
+function getAllPiezas($pieza) {
+    return $pieza->getAll();
 }
 
-function getPeliculaById($pelicula, $id, $id_director) {
-    return $pelicula->getById($id);
+function getPiezaById($pieza, $id, $marca_pieza, $coche_compatible) {
+    return $pieza->getById($id);
 }
 
-function setPelicula($pelicula) {
+function setPieza($pieza) {
     $data = json_decode(file_get_contents("php://input"), true);
-    if(isset($data["titulo"]) && isset($data["titulo"])) {
-        $id = $pelicula->createPelicula($data["titulo"], $data["precio"], $data["id_director"]);
+    if(isset($data["nombre"]) && isset($data["nombre"])) {
+        $id = $pieza->createPieza($data["nombre"], $data["precio"], $data["marca_pieza"], $data["coche_compatible"]);
         print json_encode(["id" => $id]);
     }else{
         print json_encode(["Error" => "Datos insuficientes o no son válidos"]);
     }
 }
 
-function updatePelicula($pelicula, $id) {
+function updatePieza($pieza, $id) {
     $data = json_decode(file_get_contents("php://input"), true);
-    if(isset($data["titulo"]) && isset($data["precio"]) && isset($data["id_director"])) {
-        $affected = $pelicula->update($id, $data["titulo"], $data["precio"], $data["id_director"]);
+    if(isset($data["nombre"]) && isset($data["precio"]) && isset($data["marca_pieza"]) && isset($data["coche_compatible"])) {
+        $affected = $pieza->update($id, $data["nombre"], $data["precio"], $data["marca_pieza"], $data["coche_compatible"]);
         print json_encode(["affected" => $affected]);
     }else{
         print json_encode(["Error" => "Datos insuficientes o no son válidos"]);
     }
 }
-function deletePelicula($pelicula, $id) {
-    $affected = $pelicula->delete( $id );
+function deletePieza($pieza, $id) {
+    $affected = $pieza->delete( $id );
     print json_encode(["affected" => $affected]);
 }

@@ -45,6 +45,9 @@ button {
     cursor: pointer;
     width: 30%;
 }
+.listado {
+    width: 4.5rem;
+}
 .btn {
     text-align: center;
 }
@@ -63,3 +66,4 @@ button {
     from {transform: scale(1);}
     to {transform: scale(1.03);}
 }
+
