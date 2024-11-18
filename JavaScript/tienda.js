@@ -1,5 +1,4 @@
 
-
 // const products = [
 //     { id: 1, name: "BMW", model: "Serie 7 740i", price: 5900, image: "./img/cars/bmw-740.jpg", year: "1994", km: "234000" },
 //     { id: 2, name: "Honda", model: "Accord Sport 2.0", price: 6450, image: "./img/cars/honda-accord-7.jpg", year: "2006", km: "130000" },
@@ -111,7 +110,7 @@ mostrarCarrito.addEventListener('click', () => {
     }
 });
 carrito.addEventListener('click', (event) => {
-    if(!event.target.classList.contains("elim")) {
+    if(!event.target.classList.contains("elim") && !event.target.classList.contains("buy")) {
         carrito.classList.toggle("open");
     }
 });
@@ -124,6 +123,10 @@ function cargarCarrito(){
         cardProducts = JSON.parse(carritoGuardado);
         updateCarrito();
     }
+}
+function Comprar(indice){
+    cardProducts.splice(indice, 1);
+    updateCarrito();
 }
 renderizarCoches();
 cargarCarrito();
