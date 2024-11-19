@@ -1,7 +1,15 @@
 <?php
 session_start();
-require_once "comp_sesion_iniciada.php";
-    require_login();
+function is_logged_in() {
+    return isset($_SESSION["user_id"]);
+}
+
+function require_login() {
+    if (!is_logged_in()) {
+        header("Location: ../index.php");
+    }
+}
+require_login();
 ?>
 
 <!DOCTYPE html>

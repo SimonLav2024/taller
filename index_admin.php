@@ -80,6 +80,7 @@ require_once "comp_sesion_iniciada.php";
             <h2>Administración de Repuestos</h2>
             <p>Administración de repuestos que sirve para poder añadir nuevos repuestos o para borrar los antiguos en caso necesario</p>
         </a>
+        <a href="logout.php">Cerrar sesion</a>
     </div>
 </body>
 </html>
