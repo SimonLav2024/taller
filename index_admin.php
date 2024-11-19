@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once "comp_sesion_iniciada.php";
+    require_login();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

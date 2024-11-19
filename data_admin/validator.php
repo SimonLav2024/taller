@@ -9,25 +9,6 @@ class Validator {
         return $saneados;
     }
 
-    public static function validar($datos) {
-        $errors = [];
-        if(!isset($datos["nombre"]) || empty(trim($datos["nombre"]))) {
-            $errors["nombre"] = "El nombre es necesario.";
-        }elseif(strlen($datos["nombre"]) < 2 || strlen($datos["nombre"]) > 50){
-            $errors["nombre"] = "El nombre ha de tener entre 2 y 50 caractéres.";
-        }elseif(!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ' -]+$/u", $datos["nombre"])) {
-            $errors["nombre"] = "El nombre no puede contener caractéres especiales.";
-        }
-
-        if(!isset($datos["email"]) || empty(trim($datos["email"]))) {
-            $errors["email"] = "El email es necesario.";
-        }elseif(!filter_var($datos["email"], FILTER_VALIDATE_EMAIL)){
-            $errors["email"] = "El formato del email no es valido.";
-        }elseif(strlen($datos["email"]) > 255) {
-            $errors["email"] = "El email puede ser de máximo 255 caracteres.";
-        }
-        return $errors;
-    }
     public static function validarPieza($data){
         $errors = [];
 

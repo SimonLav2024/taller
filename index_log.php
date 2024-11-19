@@ -12,7 +12,7 @@ if(isset($_SESSION['success']) && isset($_SESSION['message'])){
     unset($_SESSION['success']);
 
     // mostramos mensaje
-    echo "<div class='mensaje $success'>$mensaje</div>";
+    // echo "<div class='mensaje $success'>$mensaje</div>";
 }
 ?>
 

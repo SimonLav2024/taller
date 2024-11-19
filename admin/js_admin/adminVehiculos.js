@@ -91,13 +91,15 @@ function getVehiculos(){
                             <textarea class="edicion">${sanitizedDescripcion}</textarea>
                         </td>
                         <td class="td-btn">
-                            <button class="listado" onclick="editMode(${vehiculo.id})">Editar</button>
+                            
                             <button class="listado" onclick="deleteVehiculo(${vehiculo.id})">Eliminar</button>
-                            <button class="edicion" onclick="updateVehiculo(${vehiculo.id})">Guardar</button>
-                            <button class="edicion" onclick="cancelEdit(${vehiculo.id})">Cancelar</button>
                         </td>
                     </tr>
                 `
+                // quitado el boton de editar por falta de tiempo para la optimización (el código sigue ahí). solo queda el de eliminar.
+                // <button class="listado" onclick="editMode(${vehiculo.id})">Editar</button>
+                // <button class="edicion" onclick="updateVehiculo(${vehiculo.id})">Guardar</button>
+                // <button class="edicion" onclick="cancelEdit(${vehiculo.id})">Cancelar</button>
             });
 
         })

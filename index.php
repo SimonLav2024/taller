@@ -1,4 +1,12 @@
 
+<?php
+require_once "comp_sesion_iniciada.php";
+if (is_logged_in()){
+    header("Location: index_admin.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
