@@ -61,6 +61,61 @@ function verDetalles(link) {
     }
 }
 
+// Función para buscar coches
+async function buscarCoches() {
+    const busqueda = document.getElementById('buscar').value;
+    const productsContainer = document.getElementById('products');
+    const estadoBusqueda = document.getElementById('estado-busqueda');
+    
+    // Mostrar estado de carga
+    estadoBusqueda.innerHTML = '<div class="loading"></div>';
+    productsContainer.innerHTML = '';
+    
+    try {
+        const response = await fetch(`buscar_coches.php?query=${encodeURIComponent(busqueda)}`);
+        const data = await response.json();
+        
+        // Limpiar estado de carga
+        estadoBusqueda.innerHTML = '';
+        
+        if (data.success) {
+            if (data.data.length === 0) {
+                estadoBusqueda.innerHTML = '<p>No se encontraron coches que coincidan con tu búsqueda</p>';
+                return;
+            }
+            
+            data.data.forEach(coche => {
+                const cocheHTML = `
+                    <div class="product-card">
+                        <img src="${coche.imagen}" alt="${coche.marca} ${coche.modelo}">
+                        <h3>${coche.marca} ${coche.modelo}</h3>
+                        <p class="price">€${Number(coche.precio).toLocaleString('es-ES')}</p>
+                        <p class="details">
+                            <span>Año: ${coche.año}</span><br>
+                            <span>Kilometraje: ${Number(coche.kilometraje).toLocaleString('es-ES')} km</span>
+                        </p>
+                        <button onclick="agregarAlCarrito(${coche.id})">Añadir al carrito</button>
+                    </div>
+                `;
+                productsContainer.innerHTML += cocheHTML;
+            });
+        } else {
+            estadoBusqueda.innerHTML = '<p>Error al buscar coches. Por favor, intenta de nuevo.</p>';
+            console.error('Error en la búsqueda:', data.error);
+        }
+    } catch (error) {
+        estadoBusqueda.innerHTML = '<p>Error de conexión. Por favor, verifica tu conexión a internet.</p>';
+        console.error('Error:', error);
+    }
+}
+
+// También podemos agregar la búsqueda al presionar Enter
+document.getElementById('buscar').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        buscarCoches();
+    }
+});
+
 // function renderizarProducts(){
 //     productosContainer.innerHTML = products.map(producto => `
 //         <div class="fade-in">

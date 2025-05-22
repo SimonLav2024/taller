@@ -25,9 +25,15 @@
     <div class="container">
         <h1 id="titulo">Find Your Perfect Drive</h1>
         <div class="ajusteInput">
-            <input type="text" class="search-input" id="buscar" placeholder="Busca tu coche..." value=""><button class="search-button" id="botonBusqueda">Buscar</button>
+            <input type="text" class="search-input" id="buscar" placeholder="Busca tu coche..." value="">
+            <button class="search-button" id="botonBusqueda" onclick="buscarCoches()">Buscar</button>
         </div>
-        <div class="products" id="products"></div>
+        
+        <div id="estado-busqueda" class="estado-busqueda"></div>
+        
+        <div class="products" id="products">
+            <!-- Los resultados se insertarán aquí dinámicamente -->
+        </div>
     </div>
     <div>
         <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80" alt="portada" class="portada">
